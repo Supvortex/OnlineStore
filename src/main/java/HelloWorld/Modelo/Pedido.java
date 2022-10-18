@@ -1,13 +1,13 @@
 package HelloWorld.Modelo;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Pedido {
     private String  numPedido;
-    private String  cliente;
-    private String  articulo;
+    private Cliente  cliente;
+    private Articulo  articulo;
     private Integer cantidad;
-    private Date    fechaHora;
-    public Pedido(String numPedido, String cliente, String articulo, Integer cantidad, Date fechaHora) {
+    private LocalDateTime fechaHora;
+    public Pedido(String numPedido, Cliente cliente, Articulo articulo, Integer cantidad,  LocalDateTime fechaHora) {
         this.numPedido = numPedido;
         this.cliente = cliente;
         this.articulo = articulo;
@@ -22,16 +22,16 @@ public class Pedido {
     public void setNumPedido(String numPedido) {
         this.numPedido = numPedido;
     }
-    public String getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
-    public void setCliente(String cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-    public String getArticulo() {
+    public Articulo getArticulo() {
         return articulo;
     }
-    public void setArticulo(String articulo) {
+    public void setArticulo(Articulo articulo) {
         this.articulo = articulo;
     }
     public Integer getCantidad() {
@@ -40,10 +40,10 @@ public class Pedido {
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }
-    public Date getFechaHora() {
+    public  LocalDateTime getFechaHora() {
         return fechaHora;
     }
-    public void setFechaHora(Date fechaHora) {
+    public void setFechaHora( LocalDateTime fechaHora) {
         this.fechaHora = fechaHora;
     }
     @Override
