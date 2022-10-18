@@ -1,4 +1,4 @@
-package org.UOC.Modelo;
+package HelloWorld.Modelo;
 
 public class Articulo {
     private String  codigo;

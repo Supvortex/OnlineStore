@@ -1,4 +1,4 @@
-package org.UOC.Modelo;
+package HelloWorld.Modelo;
 
 public class Cliente {
     private String  email;

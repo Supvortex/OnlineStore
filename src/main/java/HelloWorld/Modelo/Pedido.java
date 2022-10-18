@@ -1,4 +1,4 @@
-package org.UOC.Modelo;
+package HelloWorld.Modelo;
 import java.util.Date;
 
 public class Pedido {
