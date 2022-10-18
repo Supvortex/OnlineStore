@@ -1,4 +1,4 @@
-package org.UOC.Controlador;
+package HelloWorld.Controlador;
 
 public interface IController {
 }
