@@ -1,19 +1,21 @@
 package HelloWorld.Modelo;
 
-public class Cliente {
+public abstract class Cliente {
     private String  email;
     private String  nombre;
     private String  domicilio;
     private String  nif;
-    private Boolean isPrem;
 
-    public Cliente(String email, String nombre, String domicilio, String nif, Boolean isPrem) {
+    public Cliente(String email, String nombre, String domicilio, String nif) {
         this.email = email;
         this.nombre = nombre;
         this.domicilio = domicilio;
         this.nif = nif;
-        this.isPrem = isPrem;
     }
+    public abstract String tipoCliente();
+    public abstract float calcAnual();
+    public abstract float descuentoEnv();
+
     public Cliente() {
     }
     public String getEmail() {
@@ -40,12 +42,6 @@ public class Cliente {
     public void setNif(String nif) {
         this.nif = nif;
     }
-    public Boolean getPrem() {
-        return isPrem;
-    }
-    public void setPrem(Boolean prem) {
-        isPrem = prem;
-    }
     @Override
     public String toString() {
         return "Cliente{" +
@@ -53,7 +49,6 @@ public class Cliente {
                 ", nombre='" + nombre + '\'' +
                 ", domicilio='" + domicilio + '\'' +
                 ", nif='" + nif + '\'' +
-                ", isPrem=" + isPrem +
                 '}';
     }
 }
