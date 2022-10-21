@@ -1,4 +1,4 @@
-package HelloWorld.Modelo;
+package HelloWorld.modelo;
 
 public abstract class Cliente {
     private String  email;

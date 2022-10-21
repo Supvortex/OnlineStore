@@ -1,4 +1,4 @@
-package HelloWorld.Modelo;
+package HelloWorld.modelo;
 
 public class Articulo {
     private String  codigo;

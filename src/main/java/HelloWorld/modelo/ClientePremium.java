@@ -1,6 +1,6 @@
-package HelloWorld.Modelo;
+package HelloWorld.modelo;
 
-import HelloWorld.Constants.CostConstants;
+import HelloWorld.constants.CostConstants;
 
 public class ClientePremium extends Cliente{
 

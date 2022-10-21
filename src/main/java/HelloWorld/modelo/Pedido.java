@@ -1,4 +1,4 @@
-package HelloWorld.Modelo;
+package HelloWorld.modelo;
 import java.time.LocalDateTime;
 
 public class Pedido {
