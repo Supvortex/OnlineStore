@@ -1,7 +1,6 @@
 package HelloWorld.Modelo.Dao;
-import HelloWorld.Modelo.Articulo;
-import HelloWorld.Modelo.Cliente;
-import HelloWorld.Modelo.Pedido;
+import HelloWorld.Modelo.*;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -19,27 +18,53 @@ public class Dao {
         this.articulos = new ArrayList<Articulo>();
     }
 
-    void anadirPedido(Pedido pedido) {
+    public void anadirPedido(Pedido pedido) {
         this.pedidos.add(pedido);
     }
 
-    void cancelarPedido(Pedido pedido) {
+    public void cancelarPedido(Pedido pedido) {
         if (esCancelable(pedido) == true) {
             this.pedidos.remove(pedido);
         }
     }
 
-    List<Pedido> mostrarPedidos() {
-        return this.pedidos;
+    public Pedido getPedidoConNumPedido(String numPedido){
+        for (Pedido myPedido : this.pedidos) {
+            if (myPedido.getNumPedido().equals(numPedido)) {
+                return myPedido;
+            }
+        }
+        return null;
     }
 
-    void anadirCliente(Cliente cliente) {
+    public List<Pedido> mostrarPedidos() {
+        return this.pedidos;
+    }
+    public List<Pedido> mostrarPedidosEnviados(String cliente) {
+        List<Pedido> pedidosEnviados = new ArrayList<Pedido>();
+        for (Pedido myPedido : this.pedidos) {
+            if (!esCancelable(myPedido) && myPedido.getCliente().getEmail().equals(cliente)) {
+                pedidosEnviados.add(myPedido);
+            }
+        }
+        return pedidosEnviados;
+    }
+    public List<Pedido> mostrarPedidosPendientes(String cliente) {
+        List<Pedido> pedidosPendientes = new ArrayList<Pedido>();
+        for (Pedido myPedido : this.pedidos) {
+            if (esCancelable(myPedido) && myPedido.getCliente().getEmail().equals(cliente)) {
+                pedidosPendientes.add(myPedido);
+            }
+        }
+        return pedidosPendientes;
+    }
+
+    public void anadirCliente(Cliente cliente) {
         if (!clienteExiste(cliente)) {
             this.clientes.add(cliente);
         }
     }
-
-    Boolean clienteExiste(Cliente cliente) {
+    public Boolean clienteExiste(Cliente cliente) {
         for (Cliente myCliente : this.clientes) {
             if (cliente.getEmail().equals(myCliente.getEmail())) {
                 return true;
@@ -48,27 +73,37 @@ public class Dao {
         return false;
     }
 
-    List<Cliente> mostrarClientes() {
+    public List<Cliente> mostrarClientes() {
         return this.clientes;
     }
 
-    List<Cliente> mostrarClientesPrem() {
+    public List<Cliente> mostrarClientesPrem() {
         List<Cliente> clientesPrem = new ArrayList<Cliente>();
         for (Cliente myCliente : this.clientes) {
-            if (myCliente.getPrem()) {
+            if (myCliente instanceof ClientePremium) {
+                //((ClientePremium) myCliente).descuentoEnv(); clase hija al castear la clase padre para acceder a los datos de la clase heredada "ClienteXXX".
                 clientesPrem.add(myCliente);
             }
         }
         return clientesPrem;
     }
+    public List<Cliente> mostrarClientesEstandar() {
+        List<Cliente> clientesEstandar = new ArrayList<Cliente>();
+        for (Cliente myCliente : this.clientes) {
+            if (myCliente instanceof ClienteEstandar) {
+                clientesEstandar.add(myCliente);
+            }
+        }
+        return clientesEstandar;
+    }
 
-    void anadirArticulo(Articulo articulo) {
+    public void anadirArticulo(Articulo articulo) {
         if (!hayArticulo(articulo)) {
             this.articulos.add(articulo);
         }
     }
 
-    List<Articulo> mostrarArticulos() {
+    public List<Articulo> mostrarArticulos() {
         return this.articulos;
     }
 

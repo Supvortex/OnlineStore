@@ -1,128 +1,45 @@
 package HelloWorld.Controlador;
-
 import HelloWorld.Modelo.Articulo;
 import HelloWorld.Modelo.Cliente;
+import HelloWorld.Modelo.Dao.Dao;
 import HelloWorld.Modelo.Pedido;
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-
-
-
 public class Controller {
-
-    //VARIABLES
-
-    List<Cliente> clientes ;
-    List<Articulo> articulos;
-    List<Pedido> pedidos;
-
-    //CONSTRUCTOR
-
+    private Dao dao;
     public Controller(){
-        this.clientes = new ArrayList<>();
-        this.articulos = new ArrayList<>();
-        this.pedidos = new ArrayList<>();
-
+        dao = new Dao();
 }
-
-
 //METODOS
-
-
-    void añadirPedido(Pedido pedido){
-        this.pedidos.add(pedido);
+    void anadirPedido(Pedido pedido){
+        this.dao.anadirPedido(pedido);
     }
-
-
-    void cancelarPedido(Pedido numPedido){
-        if (esCancelable(numPedido) == true) {
-            this.pedidos.remove(numPedido);
+    void cancelarPedido(String numPedido){
+        if(this.dao.getPedidoConNumPedido(numPedido) != null){
+            this.dao.cancelarPedido(this.dao.getPedidoConNumPedido(numPedido));
         }
     }
-
-
     List<Pedido> mostrarPedidosPendientes(String cliente){
-
-        List<Pedido> pedidosPendientes = new ArrayList<>();
-        for (Pedido p: this.pedidos) {
-            if(p.getCliente().getEmail() == cliente){
-                if (Duration.between(p.getFechaHora().toLocalDate(), LocalDateTime.now().toLocalDate()).getSeconds() < (p.getArticulo().getTiempoEnvio() * 60)) {
-                   pedidosPendientes.add(p);
-                }
-            }
-        }
-        return  pedidosPendientes;
+        return this.dao.mostrarPedidosPendientes(cliente);
     }
-
-
     List<Pedido> mostrarPedidosEnviados(String cliente){
-
-        List<Pedido> pedidosEnviados = new ArrayList<>();
-        for (Pedido p: this.pedidos) {
-            if(p.getCliente().getEmail() == cliente){
-                if (estaEnviado(p) ){
-                    pedidosEnviados.add(p);
-                }
-            }
-        }
-        return  pedidosEnviados;
+        return  this.dao.mostrarPedidosEnviados(cliente);
     }
-
-
-    void añadirCliente(Cliente cliente){
-        this.clientes.add(cliente);
+    void añadirCliente(Cliente cliente) {
+        this.dao.anadirCliente(cliente);
     }
-
-
     List<Cliente> mostrarClientes(){
-        return this.clientes;
+        return this.dao.mostrarClientes();
     }
-
-
     List<Cliente> mostrarClientesEstandard(){
-        List<Cliente> cEstandard = new ArrayList<>();
-        for(Cliente c : this.clientes) {
-           if( c.getPrem() == false ){
-               cEstandard.add(c);
-           }
-        }
-        return cEstandard;
+        return this.dao.mostrarClientes();
     }
-
-
     List<Cliente> mostrarClientesPremium(){
-        List<Cliente> cPremium = new ArrayList<>();
-        for(Cliente c : this.clientes){
-            if(c.getPrem() == true){
-                cPremium.add(c);
-            }
-        }
-        return cPremium;
+        return this.dao.mostrarClientesPrem();
     }
-
-
     void añadirArticulo(Articulo articulo){
-        this.articulos.add(articulo);
+        this.dao.anadirArticulo(articulo);
     }
-
     List<Articulo> mostrarArticulos(){
-        return this.articulos;
+        return this.dao.mostrarArticulos();
     }
-
-
-    private Boolean esCancelable(Pedido pedido) {
-        if (Duration.between(pedido.getFechaHora().toLocalDate(), LocalDateTime.now().toLocalDate()).getSeconds() > (pedido.getArticulo().getTiempoEnvio() * 60)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-
-    private Boolean estaEnviado(Pedido pedido) {
-        return !esCancelable(pedido);
-    }
-
 }
