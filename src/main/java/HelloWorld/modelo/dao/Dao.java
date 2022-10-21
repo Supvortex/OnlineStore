@@ -1,5 +1,5 @@
-package HelloWorld.Modelo.Dao;
-import HelloWorld.Modelo.*;
+package HelloWorld.modelo.dao;
+import HelloWorld.modelo.*;
 
 import java.time.Duration;
 import java.time.LocalDateTime;

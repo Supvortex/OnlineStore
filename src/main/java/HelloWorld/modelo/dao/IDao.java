@@ -1,7 +1,7 @@
-package HelloWorld.Modelo.Dao;
-import HelloWorld.Modelo.Articulo;
-import HelloWorld.Modelo.Cliente;
-import HelloWorld.Modelo.Pedido;
+package HelloWorld.modelo.dao;
+import HelloWorld.modelo.Articulo;
+import HelloWorld.modelo.Cliente;
+import HelloWorld.modelo.Pedido;
 import java.util.List;
 
 public interface IDao {

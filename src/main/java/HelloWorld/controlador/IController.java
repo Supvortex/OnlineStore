@@ -1,8 +1,8 @@
-package HelloWorld.Controlador;
+package HelloWorld.controlador;
 
-import HelloWorld.Modelo.Articulo;
-import HelloWorld.Modelo.Cliente;
-import HelloWorld.Modelo.Pedido;
+import HelloWorld.modelo.Articulo;
+import HelloWorld.modelo.Cliente;
+import HelloWorld.modelo.Pedido;
 import java.util.List;
 
 // METODOS INTERFACE

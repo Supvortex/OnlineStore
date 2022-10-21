@@ -1,4 +1,4 @@
-package HelloWorld.Constants;
+package HelloWorld.constants;
 
 public class CostConstants {
 

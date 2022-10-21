@@ -1,6 +1,6 @@
-package HelloWorld.Vista;
+package HelloWorld.vista;
 
-import HelloWorld.Controlador.Controller;
+import HelloWorld.controlador.Controller;
 import java.util.Scanner;
 
 public class GestionOS {
