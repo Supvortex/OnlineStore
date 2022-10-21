@@ -18,4 +18,8 @@ public class ClienteEstandar extends Cliente{
     public float descuentoEnv() {
         return CostConstants.DTO_ENVIO_ESTANDAR;
     }
+
+    public ClienteEstandar(String email, String nombre, String domicilio, String nif) {
+        super(email, nombre, domicilio, nif);
+    }
 }

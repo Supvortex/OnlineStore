@@ -1,12 +1,11 @@
 package HelloWorld.modelo.dao;
 import HelloWorld.modelo.*;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dao {
+public class Dao implements IDao{
 
     List<Pedido> pedidos;
     List<Cliente> clientes;
@@ -36,7 +35,6 @@ public class Dao {
         }
         return null;
     }
-
     public List<Pedido> mostrarPedidos() {
         return this.pedidos;
     }
@@ -72,11 +70,9 @@ public class Dao {
         }
         return false;
     }
-
     public List<Cliente> mostrarClientes() {
         return this.clientes;
     }
-
     public List<Cliente> mostrarClientesPrem() {
         List<Cliente> clientesPrem = new ArrayList<Cliente>();
         for (Cliente myCliente : this.clientes) {
