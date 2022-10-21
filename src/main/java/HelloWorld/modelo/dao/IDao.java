@@ -10,19 +10,17 @@ public interface IDao {
 
     void cancelarPedido(Pedido numPedido);
 
-    List<Pedido> mostrarPedidos (Cliente cliente, Boolean enviado );
+    List<Pedido> mostrarPedidos ();
 
     void anadirCliente (Cliente cliente);
 
-    void clienteExiste (Cliente cliente);
-
     List<Cliente> mostrarClientes ();
 
-    List<Cliente> mostrarClientesPrem (Boolean esPremium );
+    List<Cliente> mostrarClientesPrem ();
+
+    List<Cliente> mostrarClientesEstandar();
 
     void anadirArticulo(Articulo articulo);
-
-    void hayArticulo(Articulo articulo);
 
     List<Articulo> mostrarArticulos();
 

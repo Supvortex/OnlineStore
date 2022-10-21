@@ -8,14 +8,15 @@ public class ClientePremium extends Cliente{
     public String tipoCliente() {
         return CostConstants.CLIENTE_PREMIUM;
     }
-
     @Override
     public float calcAnual() {
         return CostConstants.COSTE_ANUAL_PREM;
     }
-
     @Override
     public float descuentoEnv() {
         return CostConstants.DTO_ENVIO_PREM;
+    }
+    public ClientePremium(String email, String nombre, String domicilio, String nif) {
+        super(email, nombre, domicilio, nif);
     }
 }
