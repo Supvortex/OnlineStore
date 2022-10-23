@@ -7,9 +7,9 @@ import java.util.List;
 
 public class Dao implements IDao{
 
-    List<Pedido> pedidos;
-    List<Cliente> clientes;
-    List<Articulo> articulos;
+    private List<Pedido> pedidos;
+    private List<Cliente> clientes;
+    private List<Articulo> articulos;
 
     public Dao() {
         this.pedidos = new ArrayList<Pedido>();
@@ -18,7 +18,19 @@ public class Dao implements IDao{
     }
 
     public void anadirPedido(Pedido pedido) {
-        this.pedidos.add(pedido);
+        if (pedidoExiste(pedido) == false) {
+            this.pedidos.add(pedido);
+        }
+
+    }
+
+    public Boolean pedidoExiste(Pedido pedidoParam) {
+        for (Pedido pedidoActual : this.pedidos) {
+            if (pedidoActual.getNumPedido().equals(pedidoParam.getNumPedido())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void cancelarPedido(Pedido pedido) {
@@ -103,16 +115,12 @@ public class Dao implements IDao{
         return this.articulos;
     }
 
-    private Boolean esCancelable(Pedido pedido) {
-        if (Duration.between(pedido.getFechaHora().toLocalDate(), LocalDateTime.now().toLocalDate()).getSeconds() > (pedido.getArticulo().getTiempoEnvio() * 60)) {
-            return false;
-        } else {
-            return true;
-        }
+    private Boolean esCancelable(Pedido pedidoParam) {
+     return !pedidoParam.pedidoEnviado();
     }
 
-    private Boolean estaEnviado(Pedido pedido) {
-        return !esCancelable(pedido);
+    private Boolean estaEnviado(Pedido pedidoParam) {
+        return pedidoParam.pedidoEnviado();
     }
 
     private Boolean hayArticulo(Articulo articulo) {

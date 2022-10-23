@@ -3,10 +3,10 @@ package HelloWorld.modelo;
 public class Articulo {
     private String  codigo;
     private String  descripcion;
-    private Double  pvp;
-    private Double  gastoEnvio;
-    private Integer tiempoEnvio;
-    public Articulo(String codigo, String descripcion, Double pvp, Double gastoEnvio, Integer tiempoEnvio) {
+    private float  pvp;
+    private float  gastoEnvio;
+    private int tiempoEnvio;
+    public Articulo(String codigo, String descripcion, float pvp, float gastoEnvio, int tiempoEnvio) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.pvp = pvp;
@@ -27,24 +27,30 @@ public class Articulo {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    public Double getPvp() {
+    public float getPvp() {
         return pvp;
     }
-    public void setPvp(Double pvp) {
+    public void setPvp(float pvp) {
         this.pvp = pvp;
     }
-    public Double getGastoEnvio() {
+    public float getGastoEnvio() {
         return gastoEnvio;
     }
-    public void setGastoEnvio(Double gastoEnvio) {
+    public void setGastoEnvio(float gastoEnvio) {
         this.gastoEnvio = gastoEnvio;
     }
-    public Integer getTiempoEnvio() {
+    public int getTiempoEnvio() {
         return tiempoEnvio;
     }
-    public void setTiempoEnvio(Integer tiempoEnvio) {
+    public void setTiempoEnvio(int tiempoEnvio) {
         this.tiempoEnvio = tiempoEnvio;
     }
+
+    public float precioTotal(){
+        return (this.pvp + this.gastoEnvio);
+    }
+
+
     @Override
     public String toString() {
         return "Articulo{" +

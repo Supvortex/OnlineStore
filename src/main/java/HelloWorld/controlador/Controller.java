@@ -3,9 +3,11 @@ import HelloWorld.modelo.Articulo;
 import HelloWorld.modelo.Cliente;
 import HelloWorld.modelo.dao.Dao;
 import HelloWorld.modelo.Pedido;
+import HelloWorld.modelo.dao.IDao;
+
 import java.util.List;
 public class Controller {
-    private Dao dao;
+    private IDao dao;
     public Controller(){
         dao = new Dao();
 }
@@ -42,4 +44,5 @@ public class Controller {
     List<Articulo> mostrarArticulos(){
         return this.dao.mostrarArticulos();
     }
+
 }

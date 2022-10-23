@@ -24,4 +24,10 @@ public interface IDao {
 
     List<Articulo> mostrarArticulos();
 
+    public Pedido getPedidoConNumPedido(String numPedido);
+
+    public List<Pedido> mostrarPedidosPendientes(String cliente);
+
+    public List<Pedido> mostrarPedidosEnviados(String cliente);
+
 }
