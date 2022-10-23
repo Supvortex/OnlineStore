@@ -22,4 +22,15 @@ public class ClienteEstandar extends Cliente{
     public ClienteEstandar(String email, String nombre, String domicilio, String nif) {
         super(email, nombre, domicilio, nif);
     }
+
+    @Override
+    public String toString() {
+
+        return "Cliente Estandar{" +
+                "email='" + this.getEmail() + '\'' +
+                ", nombre='" + this.getNombre() + '\'' +
+                ", domicilio='" + this.getDomicilio() + '\'' +
+                ", nif='" + this.getNif() + '\'' +
+                '}';
+    }
 }

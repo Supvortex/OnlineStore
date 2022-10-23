@@ -19,4 +19,15 @@ public class ClientePremium extends Cliente{
     public ClientePremium(String email, String nombre, String domicilio, String nif) {
         super(email, nombre, domicilio, nif);
     }
+
+    @Override
+    public String toString() {
+
+        return "Cliente Premium{" +
+                "email='" + this.getEmail() + '\'' +
+                ", nombre='" + this.getNombre() + '\'' +
+                ", domicilio='" + this.getDomicilio() + '\'' +
+                ", nif='" + this.getNif() + '\'' +
+                '}';
+    }
 }

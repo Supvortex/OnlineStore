@@ -1,4 +1,6 @@
 package HelloWorld.modelo;
+import javax.swing.text.StyledEditorKit;
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class Pedido {
@@ -46,14 +48,35 @@ public class Pedido {
     public void setFechaHora( LocalDateTime fechaHora) {
         this.fechaHora = fechaHora;
     }
+
+
+    public Boolean pedidoEnviado(){
+        if (Duration.between(this.getFechaHora(), LocalDateTime.now()).getSeconds() > (this.getArticulo().getTiempoEnvio() * 60)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public float precioEnvio(){
+        return this.articulo.getGastoEnvio();
+    }
+
+
     @Override
     public String toString() {
         return "Pedido{" +
                 "numPedido='" + numPedido + '\'' +
-                ", cliente='" + cliente + '\'' +
-                ", articulo='" + articulo + '\'' +
-                ", cantidad=" + cantidad +
                 ", fechaHora=" + fechaHora +
+                ", nif cliente='" + cliente.getNif() + '\'' +
+                ", nombre cliente='" + cliente.getNombre() + '\'' +
+                ", código articulo='" + articulo.getCodigo() + '\'' +
+                ", descripción articulo='" + articulo.getDescripcion() + '\'' +
+                ", cantidad=" + cantidad +
+                ", precio articulo='" + articulo.getPvp() + '\'' +
+                ", gastos envio='" + articulo.getGastoEnvio() + '\'' +
+                ", gasto total='" + articulo.precioTotal() + '\'' +
+                ", pedido enviado='" + pedidoEnviado().toString() + '\'' +
                 '}';
     }
 }
