@@ -20,6 +20,10 @@ public class ClientePremium extends Cliente{
         super(email, nombre, domicilio, nif);
     }
 
+    public ClientePremium(){
+
+    }
+
     @Override
     public String toString() {
 

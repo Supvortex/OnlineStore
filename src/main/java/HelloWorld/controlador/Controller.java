@@ -6,43 +6,59 @@ import HelloWorld.modelo.Pedido;
 import HelloWorld.modelo.dao.IDao;
 
 import java.util.List;
-public class Controller {
+public class Controller implements IController  {
     private IDao dao;
     public Controller(){
         dao = new Dao();
 }
 //METODOS
-    void anadirPedido(Pedido pedido){
-        this.dao.anadirPedido(pedido);
+    public Boolean anadirPedido(Pedido pedido){
+        return this.dao.anadirPedido(pedido);
     }
-    void cancelarPedido(String numPedido){
-        if(this.dao.getPedidoConNumPedido(numPedido) != null){
-            this.dao.cancelarPedido(this.dao.getPedidoConNumPedido(numPedido));
-        }
+    public Boolean cancelarPedido(String numPedido){
+        return this.dao.cancelarPedido(this.dao.getPedidoConNumPedido(numPedido));
     }
-    List<Pedido> mostrarPedidosPendientes(String cliente){
+    public  List<Pedido> mostrarPedidos (){
+        return this.dao.mostrarPedidos();
+    }
+    public List<Pedido> mostrarPedidosPendientes(String cliente){
         return this.dao.mostrarPedidosPendientes(cliente);
     }
-    List<Pedido> mostrarPedidosEnviados(String cliente){
+    public List<Pedido> mostrarPedidosEnviados(String cliente){
         return  this.dao.mostrarPedidosEnviados(cliente);
     }
-    void añadirCliente(Cliente cliente) {
-        this.dao.anadirCliente(cliente);
+    public Boolean anadirCliente(Cliente cliente) {
+        return this.dao.anadirCliente(cliente);
     }
-    List<Cliente> mostrarClientes(){
+    public List<Cliente> mostrarClientes(){
         return this.dao.mostrarClientes();
     }
-    List<Cliente> mostrarClientesEstandard(){
-        return this.dao.mostrarClientes();
+    public List<Cliente> mostrarClientesEstandard(){
+        return this.dao.mostrarClientesEstandar();
     }
-    List<Cliente> mostrarClientesPremium(){
+    public List<Cliente> mostrarClientesPremium(){
         return this.dao.mostrarClientesPrem();
     }
-    void añadirArticulo(Articulo articulo){
-        this.dao.anadirArticulo(articulo);
+    public Boolean anadirArticulo(Articulo articulo){
+        return this.dao.anadirArticulo(articulo);
     }
-    List<Articulo> mostrarArticulos(){
+
+    public List<Articulo> mostrarArticulos(){
         return this.dao.mostrarArticulos();
     }
+
+    public Cliente getClienteWithID(String emailParam){
+        return this.dao.getClienteWithID(emailParam);
+    }
+
+    public Articulo getArticuloWithCode(String codeParam){
+        return this.dao.getArticuloWithCode(codeParam);
+    }
+
+    public Pedido getPedidoWithNumPedido(String numPedidoParam) {
+        return this.dao.getPedidoWithNumPedido(numPedidoParam);
+    }
+
+
 
 }

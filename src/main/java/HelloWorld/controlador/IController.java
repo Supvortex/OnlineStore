@@ -9,15 +9,17 @@ import java.util.List;
 
 public interface IController {
 
-void añadirPedido(Pedido pedido);
+Boolean anadirPedido(Pedido pedido);
 
-void cancelarPedido(Pedido numPedido);
+List<Pedido> mostrarPedidos ();
+
+Boolean cancelarPedido(String numPedido);
 
 List<Pedido> mostrarPedidosPendientes(String cliente);
 
 List<Pedido> mostrarPedidosEnviados(String cliente);
 
-void añadirCliente(Cliente cliente);
+Boolean anadirCliente(Cliente cliente);
 
 List<Cliente> mostrarClientes();
 
@@ -25,17 +27,14 @@ List<Cliente> mostrarClientesEstandard();
 
 List<Cliente> mostrarClientesPremium();
 
-void añadirArticulo(Articulo articulo);
+Boolean anadirArticulo(Articulo articulo);
 
 List<Articulo> mostrarArticulos();
 
+Cliente getClienteWithID(String emailParam);
 
+Articulo getArticuloWithCode(String codeParam);
 
-
-
-
-
-
-
+Pedido getPedidoWithNumPedido(String numPedidoParam);
 
 }
