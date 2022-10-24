@@ -17,11 +17,12 @@ public class Dao implements IDao{
         this.articulos = new ArrayList<Articulo>();
     }
 
-    public void anadirPedido(Pedido pedido) {
+    public Boolean anadirPedido(Pedido pedido) {
         if (pedidoExiste(pedido) == false) {
             this.pedidos.add(pedido);
+            return true;
         }
-
+        return false;
     }
 
     public Boolean pedidoExiste(Pedido pedidoParam) {
@@ -33,10 +34,12 @@ public class Dao implements IDao{
         return false;
     }
 
-    public void cancelarPedido(Pedido pedido) {
+    public Boolean cancelarPedido(Pedido pedido) {
         if (esCancelable(pedido) == true) {
             this.pedidos.remove(pedido);
+            return true;
         }
+        return false;
     }
 
     public Pedido getPedidoConNumPedido(String numPedido){
@@ -69,10 +72,12 @@ public class Dao implements IDao{
         return pedidosPendientes;
     }
 
-    public void anadirCliente(Cliente cliente) {
+    public Boolean anadirCliente(Cliente cliente) {
         if (!clienteExiste(cliente)) {
             this.clientes.add(cliente);
+            return true;
         }
+        return false;
     }
     public Boolean clienteExiste(Cliente cliente) {
         for (Cliente myCliente : this.clientes) {
@@ -105,10 +110,12 @@ public class Dao implements IDao{
         return clientesEstandar;
     }
 
-    public void anadirArticulo(Articulo articulo) {
+    public Boolean anadirArticulo(Articulo articulo) {
         if (!hayArticulo(articulo)) {
             this.articulos.add(articulo);
+            return true;
         }
+        return false;
     }
 
     public List<Articulo> mostrarArticulos() {
@@ -130,5 +137,32 @@ public class Dao implements IDao{
             }
         }
         return false;
+    }
+
+    public Cliente getClienteWithID(String emailParam) {
+        for (Cliente myCliente : this.clientes) {
+            if (myCliente.getEmail().equals(emailParam)) {
+                return myCliente;
+            }
+        }
+        return null;
+    }
+
+    public Articulo getArticuloWithCode(String codeParam) {
+        for (Articulo myArticulo : this.articulos) {
+            if (myArticulo.getCodigo().equals(codeParam)) {
+                return myArticulo;
+            }
+        }
+        return null;
+    }
+
+    public Pedido getPedidoWithNumPedido(String numPedidoParam) {
+        for (Pedido myPedido : this.pedidos) {
+            if (myPedido.getNumPedido().equals(numPedidoParam)) {
+                return myPedido;
+            }
+        }
+        return null;
     }
 }

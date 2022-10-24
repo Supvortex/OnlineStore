@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface IDao {
 
-    void anadirPedido(Pedido pedido);
+    Boolean anadirPedido(Pedido pedido);
 
-    void cancelarPedido(Pedido numPedido);
+    Boolean cancelarPedido(Pedido numPedido);
 
     List<Pedido> mostrarPedidos ();
 
-    void anadirCliente (Cliente cliente);
+    Boolean anadirCliente (Cliente cliente);
 
     List<Cliente> mostrarClientes ();
 
@@ -20,14 +20,20 @@ public interface IDao {
 
     List<Cliente> mostrarClientesEstandar();
 
-    void anadirArticulo(Articulo articulo);
+    Boolean anadirArticulo(Articulo articulo);
 
     List<Articulo> mostrarArticulos();
 
-    public Pedido getPedidoConNumPedido(String numPedido);
+    Pedido getPedidoConNumPedido(String numPedido);
 
-    public List<Pedido> mostrarPedidosPendientes(String cliente);
+    List<Pedido> mostrarPedidosPendientes(String cliente);
 
-    public List<Pedido> mostrarPedidosEnviados(String cliente);
+    List<Pedido> mostrarPedidosEnviados(String cliente);
+
+    Cliente getClienteWithID(String emailParam);
+
+    Articulo getArticuloWithCode(String codeParam);
+
+    Pedido getPedidoWithNumPedido(String numPedidoParam);
 
 }
