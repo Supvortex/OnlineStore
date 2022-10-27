@@ -57,12 +57,9 @@ public class Pedido {
             return false;
         }
     }
-
     public float precioEnvio(){
         return this.articulo.getGastoEnvio();
     }
-
-
     @Override
     public String toString() {
         return "Pedido{" +

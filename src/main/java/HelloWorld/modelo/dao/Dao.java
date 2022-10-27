@@ -126,7 +126,7 @@ public class Dao implements IDao{
      return !pedidoParam.pedidoEnviado();
     }
 
-    private Boolean estaEnviado(Pedido pedidoParam) {
+    public Boolean estaEnviado(Pedido pedidoParam) {
         return pedidoParam.pedidoEnviado();
     }
 
