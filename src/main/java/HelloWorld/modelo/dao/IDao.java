@@ -36,4 +36,6 @@ public interface IDao {
 
     Pedido getPedidoWithNumPedido(String numPedidoParam);
 
+    Boolean estaEnviado(Pedido pedidoParam);
+
 }

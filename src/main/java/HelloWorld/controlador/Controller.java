@@ -11,7 +11,6 @@ public class Controller implements IController  {
     public Controller(){
         dao = new Dao();
 }
-//METODOS
     public Boolean anadirPedido(Pedido pedido){
         return this.dao.anadirPedido(pedido);
     }
@@ -42,19 +41,15 @@ public class Controller implements IController  {
     public Boolean anadirArticulo(Articulo articulo){
         return this.dao.anadirArticulo(articulo);
     }
-
     public List<Articulo> mostrarArticulos(){
         return this.dao.mostrarArticulos();
     }
-
     public Cliente getClienteWithID(String emailParam){
         return this.dao.getClienteWithID(emailParam);
     }
-
     public Articulo getArticuloWithCode(String codeParam){
         return this.dao.getArticuloWithCode(codeParam);
     }
-
     public Pedido getPedidoWithNumPedido(String numPedidoParam) {
         return this.dao.getPedidoWithNumPedido(numPedidoParam);
     }
