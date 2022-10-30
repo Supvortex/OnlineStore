@@ -1,11 +1,10 @@
 package HelloWorld.controlador;
 import HelloWorld.modelo.Articulo;
 import HelloWorld.modelo.Cliente;
+import HelloWorld.modelo.Lista;
 import HelloWorld.modelo.dao.Dao;
 import HelloWorld.modelo.Pedido;
 import HelloWorld.modelo.dao.IDao;
-
-import java.util.List;
 public class Controller implements IController  {
     private IDao dao;
     public Controller(){
@@ -17,31 +16,31 @@ public class Controller implements IController  {
     public Boolean cancelarPedido(String numPedido){
         return this.dao.cancelarPedido(this.dao.getPedidoConNumPedido(numPedido));
     }
-    public  List<Pedido> mostrarPedidos (){
+    public Lista<Pedido> mostrarPedidos (){
         return this.dao.mostrarPedidos();
     }
-    public List<Pedido> mostrarPedidosPendientes(String cliente){
+    public Lista<Pedido> mostrarPedidosPendientes(String cliente){
         return this.dao.mostrarPedidosPendientes(cliente);
     }
-    public List<Pedido> mostrarPedidosEnviados(String cliente){
+    public Lista<Pedido> mostrarPedidosEnviados(String cliente){
         return  this.dao.mostrarPedidosEnviados(cliente);
     }
     public Boolean anadirCliente(Cliente cliente) {
         return this.dao.anadirCliente(cliente);
     }
-    public List<Cliente> mostrarClientes(){
+    public Lista<Cliente> mostrarClientes(){
         return this.dao.mostrarClientes();
     }
-    public List<Cliente> mostrarClientesEstandard(){
+    public Lista<Cliente> mostrarClientesEstandard(){
         return this.dao.mostrarClientesEstandar();
     }
-    public List<Cliente> mostrarClientesPremium(){
+    public Lista<Cliente> mostrarClientesPremium(){
         return this.dao.mostrarClientesPrem();
     }
     public Boolean anadirArticulo(Articulo articulo){
         return this.dao.anadirArticulo(articulo);
     }
-    public List<Articulo> mostrarArticulos(){
+    public Lista<Articulo> mostrarArticulos(){
         return this.dao.mostrarArticulos();
     }
     public Cliente getClienteWithID(String emailParam){

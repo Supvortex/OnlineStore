@@ -1,8 +1,8 @@
 package HelloWorld.modelo.dao;
 import HelloWorld.modelo.Articulo;
 import HelloWorld.modelo.Cliente;
+import HelloWorld.modelo.Lista;
 import HelloWorld.modelo.Pedido;
-import java.util.List;
 
 public interface IDao {
 
@@ -10,25 +10,25 @@ public interface IDao {
 
     Boolean cancelarPedido(Pedido numPedido);
 
-    List<Pedido> mostrarPedidos ();
+    Lista<Pedido> mostrarPedidos ();
 
     Boolean anadirCliente (Cliente cliente);
 
-    List<Cliente> mostrarClientes ();
+    Lista<Cliente> mostrarClientes ();
 
-    List<Cliente> mostrarClientesPrem ();
+    Lista<Cliente> mostrarClientesPrem ();
 
-    List<Cliente> mostrarClientesEstandar();
+    Lista<Cliente> mostrarClientesEstandar();
 
     Boolean anadirArticulo(Articulo articulo);
 
-    List<Articulo> mostrarArticulos();
+    Lista<Articulo> mostrarArticulos();
 
     Pedido getPedidoConNumPedido(String numPedido);
 
-    List<Pedido> mostrarPedidosPendientes(String cliente);
+    Lista<Pedido> mostrarPedidosPendientes(String cliente);
 
-    List<Pedido> mostrarPedidosEnviados(String cliente);
+    Lista<Pedido> mostrarPedidosEnviados(String cliente);
 
     Cliente getClienteWithID(String emailParam);
 

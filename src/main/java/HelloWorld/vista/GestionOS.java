@@ -1,12 +1,9 @@
 package HelloWorld.vista;
-
 import HelloWorld.controlador.Controller;
 import HelloWorld.controlador.IController;
 import HelloWorld.modelo.*;
-
 import java.time.LocalDateTime;
 import java.util.Scanner;
-
 public class GestionOS {
         private IController controller;
         public GestionOS() {
@@ -37,7 +34,6 @@ public class GestionOS {
                 }
             } while (!salir);
         }
-
         char pedirOpcion(){
             String resp;
             Scanner teclado = new Scanner(System.in);
@@ -48,7 +44,6 @@ public class GestionOS {
             }
             return resp.charAt(0);
         }
-
         void gestionArticulos() {
             boolean salir = false;
             do {
@@ -67,12 +62,8 @@ public class GestionOS {
                     case '0':
                         salir = true;
                 }
-
             } while (!salir);
-
         }
-
-
     void addArticulo() {
         String resp;
         Scanner teclado = new Scanner(System.in);
@@ -100,7 +91,6 @@ public class GestionOS {
             System.out.println("Se ha producido un ERROR, no se añadira el articulo.\n");
         }
     }
-
     void showArticulo() {
 
         if (this.controller.mostrarArticulos().size()>0){
@@ -110,9 +100,7 @@ public class GestionOS {
         } else {
             System.out.println("No existen articulos en el sistema.");
         }
-
     }
-
     void gestionClientes() {
         boolean salir = false;
         do {
@@ -143,11 +131,8 @@ public class GestionOS {
                 case '0':
                     salir = true;
             }
-
         } while (!salir);
-
     }
-
     void addClientsStandard() {
         String resp;
         Scanner teclado = new Scanner(System.in);
@@ -173,7 +158,6 @@ public class GestionOS {
             System.out.println("Se ha producido un ERROR, no se añadira el cliente.\n");
         }
     }
-
     void addClientsPremium() {
         String resp;
         Scanner teclado = new Scanner(System.in);
@@ -199,7 +183,6 @@ public class GestionOS {
             System.out.println("Se ha producido un ERROR, no se añadira el cliente.\n");
         }
     }
-
     void showClients() {
 
         if (this.controller.mostrarClientes().size()>0){
@@ -211,7 +194,6 @@ public class GestionOS {
         }
 
     }
-
     void showClientsStandard() {
 
         if (this.controller.mostrarClientesEstandard().size()>0){
@@ -223,7 +205,6 @@ public class GestionOS {
         }
 
     }
-
     void showClientsPremium() {
 
         if (this.controller.mostrarClientesPremium().size()>0){
@@ -235,7 +216,6 @@ public class GestionOS {
         }
 
     }
-
     void gestionPedidos() {
         boolean salir = false;
         do {
@@ -266,11 +246,8 @@ public class GestionOS {
                 case '0':
                     salir = true;
             }
-
         } while (!salir);
-
     }
-
     void addPedido() {
         Scanner teclado = new Scanner(System.in);
         Pedido pedido = new Pedido();
@@ -299,7 +276,6 @@ public class GestionOS {
             System.out.println("Se ha producido un ERROR, no se añadira el pedido.\n");
         }
     }
-
     void showPedido() {
         if (this.controller.mostrarPedidos().size()>0){
             for (Pedido miPedido : this.controller.mostrarPedidos()) {
@@ -310,7 +286,6 @@ public class GestionOS {
         }
 
     }
-
     void deletePedido() {
         Scanner teclado = new Scanner(System.in);
         showPedido();
@@ -322,7 +297,6 @@ public class GestionOS {
             System.out.println("Se ha producido un ERROR, el pedido no existe.\n");
         }
     }
-
     void showPedidoEnviado() {
         String resp;
         Scanner teclado = new Scanner(System.in);
