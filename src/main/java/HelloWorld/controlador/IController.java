@@ -2,39 +2,36 @@ package HelloWorld.controlador;
 
 import HelloWorld.modelo.Articulo;
 import HelloWorld.modelo.Cliente;
+import HelloWorld.modelo.Lista;
 import HelloWorld.modelo.Pedido;
-import java.util.List;
-
-// METODOS INTERFACE
-
 public interface IController {
 
-Boolean anadirPedido(Pedido pedido);
+    Boolean anadirPedido(Pedido pedido);
 
-List<Pedido> mostrarPedidos ();
+    Lista<Pedido> mostrarPedidos ();
 
-Boolean cancelarPedido(String numPedido);
+    Boolean cancelarPedido(String numPedido);
 
-List<Pedido> mostrarPedidosPendientes(String cliente);
+    Lista<Pedido> mostrarPedidosPendientes(String cliente);
 
-List<Pedido> mostrarPedidosEnviados(String cliente);
+    Lista<Pedido> mostrarPedidosEnviados(String cliente);
 
-Boolean anadirCliente(Cliente cliente);
+    Boolean anadirCliente(Cliente cliente);
 
-List<Cliente> mostrarClientes();
+    Lista<Cliente> mostrarClientes();
 
-List<Cliente> mostrarClientesEstandard();
+    Lista<Cliente> mostrarClientesEstandard();
 
-List<Cliente> mostrarClientesPremium();
+    Lista<Cliente> mostrarClientesPremium();
 
-Boolean anadirArticulo(Articulo articulo);
+    Boolean anadirArticulo(Articulo articulo);
 
-List<Articulo> mostrarArticulos();
+    Lista<Articulo> mostrarArticulos();
 
-Cliente getClienteWithID(String emailParam);
+    Cliente getClienteWithID(String emailParam);
 
-Articulo getArticuloWithCode(String codeParam);
+    Articulo getArticuloWithCode(String codeParam);
 
-Pedido getPedidoWithNumPedido(String numPedidoParam);
+    Pedido getPedidoWithNumPedido(String numPedidoParam);
 
 }

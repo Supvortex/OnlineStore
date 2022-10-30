@@ -1,35 +1,36 @@
 package HelloWorld.modelo;
-
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class Lista<T> {
-    protected ArrayList<T> lista;
+public class Lista<T> implements Iterable<T>{
+    protected ArrayList<T> Listaa;
     public Lista() {
-        lista = new ArrayList<>();
+        Listaa = new ArrayList<>();
     }
-    public int getSize() {
-// TODO
-        return 0;
+    public int size() {
+        return this.Listaa.size();
     }
     public void add(T t) {
-// TODO
+        this.Listaa.add(t);
     }
-    public void borrar(T t) {
-// TODO
+    public void remove(T t) {
+        this.Listaa.remove(t);
     }
-    public T getAt(int position) {
-// TODO
-        return null;
+    public T get(int position) {
+        return this.Listaa.get(position);
     }
     public void clear() {
-// TODO
+        this.Listaa.clear();
     }
     public boolean isEmpty() {
-// TODO
-        return false;
+        return this.Listaa.isEmpty();
     }
     public ArrayList<T> getArrayList() {
-        ArrayList<T> arrlist = new ArrayList<>(lista);
-        return arrlist;
+        ArrayList<T> arrLista = new ArrayList<>(Listaa);
+        return arrLista;
+    }
+    @Override
+    public Iterator<T> iterator() {
+        return this.Listaa.iterator();
     }
 }
