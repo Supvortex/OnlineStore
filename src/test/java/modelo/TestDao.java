@@ -6,6 +6,8 @@ import HelloWorld.modelo.dao.IDao;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 
@@ -38,14 +40,14 @@ public class TestDao {
         pedido2 = new Pedido(N2_PEDIDO, cliente ,  articulo,  1 , LocalDateTime.now().minusMinutes(51));
     }
     @Test
-    void whenAddClientThenClientAdded() {
+    void whenAddClientThenClientAdded() throws SQLException {
         this.dao.anadirCliente(this.cliente);
         Assertions.assertTrue(this.dao.mostrarClientes().size() > 0);
         Assertions.assertTrue(this.dao.mostrarClientes().get(0).getNombre().equals(N_NAME));
         this.dao.mostrarClientes().clear();
     }
     @Test
-    void whenAddSameClientTwiceThenOnlyOneIsAdded() {
+    void whenAddSameClientTwiceThenOnlyOneIsAdded() throws SQLException {
         this.dao.anadirCliente(this.cliente);
         this.dao.anadirCliente(this.cliente);
         Assertions.assertTrue(this.dao.mostrarClientes().size() == 1);
@@ -53,7 +55,7 @@ public class TestDao {
     }
 
     @Test
-    void whenAddPremiumAndEstandarClientsThenShowPremClientsReturnsTwo() {
+    void whenAddPremiumAndEstandarClientsThenShowPremClientsReturnsTwo() throws SQLException {
         this.dao.anadirCliente(this.cliente1);
         this.dao.anadirCliente(this.cliente2);
         this.dao.anadirCliente(this.cliente);
@@ -62,7 +64,7 @@ public class TestDao {
     }
 
     @Test
-    void whenAddPremiumAndEstandarClientsThenShowEstandarClientsReturnsOne() {
+    void whenAddPremiumAndEstandarClientsThenShowEstandarClientsReturnsOne() throws SQLException {
         this.dao.anadirCliente(this.cliente1);
         this.dao.anadirCliente(this.cliente2);
         this.dao.anadirCliente(this.cliente);
@@ -70,14 +72,14 @@ public class TestDao {
         this.dao.mostrarClientes().clear();
     }
     @Test
-    void whenAddArticlesThenRecoverTwoArticles() {
+    void whenAddArticlesThenRecoverTwoArticles() throws SQLException {
         this.dao.anadirArticulo(this.articulo);
         this.dao.anadirArticulo(this.articulo1);
         Assertions.assertTrue(this.dao.mostrarArticulos().size() == 2);
         this.dao.mostrarArticulos().clear();
     }
     @Test
-    void whenAddArticleTwiceThenOnlyOneAdded() {
+    void whenAddArticleTwiceThenOnlyOneAdded() throws SQLException {
         this.dao.anadirArticulo(this.articulo);
         this.dao.anadirArticulo(this.articulo);
         Assertions.assertTrue(this.dao.mostrarArticulos().size() == 1);
@@ -85,7 +87,7 @@ public class TestDao {
     }
 
     @Test
-    void whenGetPedidoThenItGetsCorrectPedido() {
+    void whenGetPedidoThenItGetsCorrectPedido() throws SQLException {
         this.dao.anadirPedido(this.pedido1);
         this.dao.anadirPedido(this.pedido1);
         Assertions.assertTrue(this.dao.mostrarPedidos().size() == 1);
@@ -93,14 +95,14 @@ public class TestDao {
         this.dao.mostrarPedidos().clear();
     }
     @Test
-    void whenPedidoIdIsWrongOrNonCancelableThenGetNullOrFalse() {
+    void whenPedidoIdIsWrongOrNonCancelableThenGetNullOrFalse() throws SQLException {
         Assertions.assertNull(this.dao.getPedidoConNumPedido(N_PEDIDO));
         Assertions.assertFalse(this.dao.cancelarPedido(pedido2));
         Assertions.assertTrue(this.dao.estaEnviado(pedido2));
     }
 
     @Test
-    void whenAddPedidoThenIsCancelable() {
+    void whenAddPedidoThenIsCancelable() throws SQLException {
         this.dao.anadirPedido(this.pedido1);
         this.dao.anadirPedido(this.pedido2);
         this.dao.cancelarPedido(this.pedido1);
@@ -109,7 +111,7 @@ public class TestDao {
         this.dao.mostrarPedidos().clear();
     }
     @Test
-    void whenAddPedidoThenIsPending() {
+    void whenAddPedidoThenIsPending() throws SQLException {
         this.dao.anadirPedido(this.pedido1);
         this.dao.anadirPedido(this.pedido2);
         Assertions.assertTrue(this.dao.mostrarPedidosPendientes(this.cliente.getEmail()).size() == 1);
@@ -117,21 +119,21 @@ public class TestDao {
         this.dao.mostrarPedidos().clear();
     }
     @Test
-    void whenGetNombreClienteThenGetCorrectCliente() {
+    void whenGetNombreClienteThenGetCorrectCliente() throws SQLException {
         this.dao.anadirCliente(this.cliente);
         Assertions.assertTrue(this.dao.getClienteWithID(cliente.getEmail()).getNombre().equals(N_NAME));
         Assertions.assertNull(this.dao.getClienteWithID(cliente2.getEmail()));
         this.dao.mostrarClientes().clear();
     }
     @Test
-    void whenGetArticleCodeThenGetCorrectArticle() {
+    void whenGetArticleCodeThenGetCorrectArticle() throws SQLException {
         this.dao.anadirArticulo(this.articulo);
         Assertions.assertTrue(this.dao.getArticuloWithCode(articulo.getCodigo()).getDescripcion().equals(A_DESCRIPCION));
         Assertions.assertNull(this.dao.getArticuloWithCode(articulo1.getCodigo()));
         this.dao.mostrarArticulos().clear();
     }
     @Test
-    void whenGetNumPedidoThenGetCorrectPedido() {
+    void whenGetNumPedidoThenGetCorrectPedido() throws SQLException {
         this.dao.anadirPedido(this.pedido1);
         Assertions.assertTrue(this.dao.getPedidoWithNumPedido(pedido1.getNumPedido()).getCantidad().equals(P_CANTIDAD));
         Assertions.assertNull(this.dao.getPedidoWithNumPedido(pedido2.getNumPedido()));

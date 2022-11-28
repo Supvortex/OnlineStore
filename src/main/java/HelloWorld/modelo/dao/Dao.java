@@ -1,148 +1,126 @@
 package HelloWorld.modelo.dao;
 import HelloWorld.modelo.*;
+import java.sql.SQLException;
 
-public class Dao implements IDao{
-    private Lista<Pedido> pedidos;
-    private Lista<Cliente> clientes;
-    private Lista<Articulo> articulos;
+public class Dao implements IDao {
+    private Conexion conexion;
+
     public Dao() {
-        this.pedidos = new Lista<Pedido>();
-        this.clientes = new Lista<Cliente>();
-        this.articulos = new Lista<Articulo>();
+        conexion = new Conexion();
     }
-    public Boolean anadirPedido(Pedido pedido) {
-        if (pedidoExiste(pedido) == false) {
-            this.pedidos.add(pedido);
+
+    public Boolean anadirPedido(Pedido pedido) throws SQLException {
+        return conexion.anadirPedido(pedido);
+    }
+
+    public Boolean pedidoExiste(Pedido pedidoParam) throws SQLException {
+        if (conexion.obtenerPedidosConId(pedidoParam.getNumPedido()) != null) {
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
-    public Boolean pedidoExiste(Pedido pedidoParam) {
-        for (Pedido pedidoActual : this.pedidos) {
-            if (pedidoActual.getNumPedido().equals(pedidoParam.getNumPedido())) {
-                return true;
-            }
-        }
-        return false;
-    }
+
     public Boolean cancelarPedido(Pedido pedido) {
         if (esCancelable(pedido) == true) {
-            this.pedidos.remove(pedido);
+            conexion.cancelarPedido(pedido);
             return true;
         }
         return false;
     }
-    public Pedido getPedidoConNumPedido(String numPedido){
-        for (Pedido myPedido : this.pedidos) {
-            if (myPedido.getNumPedido().equals(numPedido)) {
-                return myPedido;
-            }
-        }
-        return null;
+
+    public Pedido getPedidoConNumPedido(String numPedido) throws SQLException {
+        return conexion.obtenerPedidosConId(numPedido);
     }
-    public Lista<Pedido> mostrarPedidos() {
-        return this.pedidos;
+
+    public Lista<Pedido> mostrarPedidos() throws SQLException {
+        return conexion.obtenerPedidos();
     }
-    public Lista<Pedido> mostrarPedidosEnviados(String cliente) {
+
+    public Lista<Pedido> mostrarPedidosEnviados(String cliente) throws SQLException {
         Lista<Pedido> pedidosEnviados = new Lista<Pedido>();
-        for (Pedido myPedido : this.pedidos) {
-            if (!esCancelable(myPedido) && myPedido.getCliente().getEmail().equals(cliente)) {
+        for (Pedido myPedido : conexion.obtenerPedidoConCliente(cliente)) {
+            if (!esCancelable(myPedido)) {
                 pedidosEnviados.add(myPedido);
             }
         }
         return pedidosEnviados;
     }
-    public Lista<Pedido> mostrarPedidosPendientes(String cliente) {
+
+    public Lista<Pedido> mostrarPedidosPendientes(String cliente) throws SQLException {
         Lista<Pedido> pedidosPendientes = new Lista<Pedido>();
-        for (Pedido myPedido : this.pedidos) {
-            if (esCancelable(myPedido) && myPedido.getCliente().getEmail().equals(cliente)) {
+        for (Pedido myPedido : conexion.obtenerPedidoConCliente(cliente)) {
+            if (esCancelable(myPedido)) {
                 pedidosPendientes.add(myPedido);
             }
         }
         return pedidosPendientes;
     }
-    public Boolean anadirCliente(Cliente cliente) {
-        if (!clienteExiste(cliente)) {
-            this.clientes.add(cliente);
+
+    public Boolean anadirCliente(Cliente cliente) throws SQLException {
+        if (cliente instanceof ClienteEstandar) {
+            return conexion.addClienteEstandar((ClienteEstandar) cliente);
+        } else {
+            return conexion.addClientePremium((ClientePremium) cliente);
+        }
+    }
+
+    public Boolean clienteExiste(Cliente cliente) throws SQLException {
+        if (conexion.obtenerClienteEmail(cliente.getEmail()) != null) {
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
-    public Boolean clienteExiste(Cliente cliente) {
-        for (Cliente myCliente : this.clientes) {
-            if (cliente.getEmail().equals(myCliente.getEmail())) {
-                return true;
-            }
-        }
-        return false;
+
+    public Lista<Cliente> mostrarClientes() throws SQLException {
+        Lista<Cliente> clientes = new Lista<Cliente>();
+        clientes.addAll(conexion.obtenerClientesEstandar());
+        clientes.addAll(conexion.obtenerClientesPremium());
+        return clientes;
     }
-    public Lista<Cliente> mostrarClientes() {
-        return this.clientes;
+
+    public Lista<Cliente> mostrarClientesPrem() throws SQLException {
+        return conexion.obtenerClientesPremium();
     }
-    public Lista<Cliente> mostrarClientesPrem() {
-        Lista<Cliente> clientesPrem = new Lista<Cliente>();
-        for (Cliente myCliente : this.clientes) {
-            if (myCliente instanceof ClientePremium) {
-                clientesPrem.add(myCliente);
-            }
-        }
-        return clientesPrem;
+
+    public Lista<Cliente> mostrarClientesEstandar() throws SQLException {
+        return conexion.obtenerClientesEstandar();
     }
-    public Lista<Cliente> mostrarClientesEstandar() {
-        Lista<Cliente> clientesEstandar = new Lista<Cliente>();
-        for (Cliente myCliente : this.clientes) {
-            if (myCliente instanceof ClienteEstandar) {
-                clientesEstandar.add(myCliente);
-            }
-        }
-        return clientesEstandar;
+
+    public Boolean anadirArticulo(Articulo articulo) throws SQLException {
+        return conexion.anadirArticulo(articulo);
     }
-    public Boolean anadirArticulo(Articulo articulo) {
-        if (!hayArticulo(articulo)) {
-            this.articulos.add(articulo);
-            return true;
-        }
-        return false;
+
+    public Lista<Articulo> mostrarArticulos() throws SQLException {
+        return conexion.obtenerArticulo();
     }
-    public Lista<Articulo> mostrarArticulos() {
-        return this.articulos;
-    }
+
     private Boolean esCancelable(Pedido pedidoParam) {
-     return !pedidoParam.pedidoEnviado();
+        return !pedidoParam.pedidoEnviado();
     }
+
     public Boolean estaEnviado(Pedido pedidoParam) {
         return pedidoParam.pedidoEnviado();
     }
-    private Boolean hayArticulo(Articulo articulo) {
-        for (Articulo myArticulo : this.articulos) {
-            if (articulo.getCodigo().equals(myArticulo.getCodigo())) {
-                return true;
-            }
+
+    private Boolean hayArticulo(Articulo articulo) throws SQLException {
+        if (conexion.obtenerArticuloConCod(articulo.getCodigo()) != null) {
+            return true;
+        } else {
+            return false;
         }
-        return false;
     }
-    public Cliente getClienteWithID(String emailParam) {
-        for (Cliente myCliente : this.clientes) {
-            if (myCliente.getEmail().equals(emailParam)) {
-                return myCliente;
-            }
-        }
-        return null;
+
+    public Cliente getClienteWithID(String emailParam) throws SQLException {
+        return conexion.obtenerClienteEmail(emailParam);
     }
-    public Articulo getArticuloWithCode(String codeParam) {
-        for (Articulo myArticulo : this.articulos) {
-            if (myArticulo.getCodigo().equals(codeParam)) {
-                return myArticulo;
-            }
-        }
-        return null;
+
+    public Articulo getArticuloWithCode(String codeParam) throws SQLException {
+        return conexion.obtenerArticuloConCod(codeParam);
     }
-    public Pedido getPedidoWithNumPedido(String numPedidoParam) {
-        for (Pedido myPedido : this.pedidos) {
-            if (myPedido.getNumPedido().equals(numPedidoParam)) {
-                return myPedido;
-            }
-        }
-        return null;
+
+    public Pedido getPedidoWithNumPedido(String numPedidoParam) throws SQLException {
+        return conexion.obtenerPedidosConId(numPedidoParam);
     }
 }

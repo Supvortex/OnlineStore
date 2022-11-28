@@ -6,6 +6,8 @@ import HelloWorld.modelo.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 public class TestController {
@@ -36,7 +38,7 @@ public class TestController {
     }
 
     @Test
-    void whenGetPedidoThenItGetsCorrectPedido() {
+    void whenGetPedidoThenItGetsCorrectPedido() throws SQLException {
         this.controller.anadirPedido(this.pedido1);
         this.controller.anadirPedido(this.pedido1);
         Assertions.assertTrue(this.controller.mostrarPedidos().size() == 1);
@@ -44,13 +46,13 @@ public class TestController {
         this.controller.mostrarPedidos().clear();
     }
     @Test
-    void WhenCancelPedidoThenIsTrue() {
+    void WhenCancelPedidoThenIsTrue() throws SQLException {
         this.controller.anadirPedido(this.pedido1);
         Assertions.assertTrue(this.controller.cancelarPedido(N_PEDIDO));
         this.controller.mostrarPedidos().clear();
     }
     @Test
-    void whenAddPedidoThenIsPending() {
+    void whenAddPedidoThenIsPending() throws SQLException {
         this.controller.anadirPedido(this.pedido1);
         this.controller.anadirPedido(this.pedido2);
         Assertions.assertTrue(this.controller.mostrarPedidosPendientes(this.cliente.getEmail()).size() == 1);
@@ -58,7 +60,7 @@ public class TestController {
         this.controller.mostrarPedidos().clear();
     }
     @Test
-    void whenAddPremiumAndEstandarClientsThenShowEstandarClientsReturnsOne() {
+    void whenAddPremiumAndEstandarClientsThenShowEstandarClientsReturnsOne() throws SQLException {
         this.controller.anadirCliente(this.cliente1);
         this.controller.anadirCliente(this.cliente2);
         this.controller.anadirCliente(this.cliente);
@@ -67,21 +69,21 @@ public class TestController {
         this.controller.mostrarClientes().clear();
     }
     @Test
-    void whenAddArticlesThenRecoverTwoArticles() {
+    void whenAddArticlesThenRecoverTwoArticles() throws SQLException {
         this.controller.anadirArticulo(this.articulo);
         this.controller.anadirArticulo(this.articulo1);
         Assertions.assertTrue(this.controller.mostrarArticulos().size() == 2);
         this.controller.mostrarArticulos().clear();
     }
     @Test
-    void whenGetNombreClienteThenGetCorrectCliente() {
+    void whenGetNombreClienteThenGetCorrectCliente() throws SQLException {
         this.controller.anadirCliente(this.cliente);
         Assertions.assertTrue(this.controller.getClienteWithID(cliente.getEmail()).getNombre().equals(N_NAME));
         Assertions.assertNull(this.controller.getClienteWithID(cliente2.getEmail()));
         this.controller.mostrarClientes().clear();
     }
     @Test
-    void whenGetArticleCodeThenGetCorrectArticle() {
+    void whenGetArticleCodeThenGetCorrectArticle() throws SQLException {
         this.controller.anadirArticulo(this.articulo);
         Assertions.assertTrue(this.controller.getArticuloWithCode(articulo.getCodigo()).getDescripcion().equals(A_DESCRIPCION));
         Assertions.assertNull(this.controller.getArticuloWithCode(articulo1.getCodigo()));
