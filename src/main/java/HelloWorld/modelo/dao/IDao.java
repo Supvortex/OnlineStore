@@ -4,37 +4,41 @@ import HelloWorld.modelo.Cliente;
 import HelloWorld.modelo.Lista;
 import HelloWorld.modelo.Pedido;
 
+import java.sql.SQLException;
+
 public interface IDao {
 
-    Boolean anadirPedido(Pedido pedido);
+    Boolean restartDatabase() throws SQLException;
+
+    Boolean anadirPedido(Pedido pedido) throws SQLException;
 
     Boolean cancelarPedido(Pedido numPedido);
 
-    Lista<Pedido> mostrarPedidos ();
+    Lista<Pedido> mostrarPedidos () throws SQLException;
 
-    Boolean anadirCliente (Cliente cliente);
+    Boolean anadirCliente (Cliente cliente) throws SQLException;
 
-    Lista<Cliente> mostrarClientes ();
+    Lista<Cliente> mostrarClientes () throws SQLException;
 
-    Lista<Cliente> mostrarClientesPrem ();
+    Lista<Cliente> mostrarClientesPrem () throws SQLException;
 
-    Lista<Cliente> mostrarClientesEstandar();
+    Lista<Cliente> mostrarClientesEstandar() throws SQLException;
 
-    Boolean anadirArticulo(Articulo articulo);
+    Boolean anadirArticulo(Articulo articulo) throws SQLException;
 
-    Lista<Articulo> mostrarArticulos();
+    Lista<Articulo> mostrarArticulos() throws SQLException;
 
-    Pedido getPedidoConNumPedido(String numPedido);
+    Pedido getPedidoConNumPedido(String numPedido) throws SQLException;
 
-    Lista<Pedido> mostrarPedidosPendientes(String cliente);
+    Lista<Pedido> mostrarPedidosPendientes(String cliente) throws SQLException;
 
-    Lista<Pedido> mostrarPedidosEnviados(String cliente);
+    Lista<Pedido> mostrarPedidosEnviados(String cliente) throws SQLException;
 
-    Cliente getClienteWithID(String emailParam);
+    Cliente getClienteWithID(String emailParam) throws SQLException;
 
-    Articulo getArticuloWithCode(String codeParam);
+    Articulo getArticuloWithCode(String codeParam) throws SQLException;
 
-    Pedido getPedidoWithNumPedido(String numPedidoParam);
+    Pedido getPedidoWithNumPedido(String numPedidoParam) throws SQLException;
 
     Boolean estaEnviado(Pedido pedidoParam);
 

@@ -2,6 +2,9 @@ package HelloWorld.vista;
 import HelloWorld.controlador.Controller;
 import HelloWorld.controlador.IController;
 import HelloWorld.modelo.*;
+import HelloWorld.modelo.dao.Conexion;
+
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 public class GestionOS {
@@ -10,13 +13,14 @@ public class GestionOS {
             this.controller = new Controller();
             Scanner teclado = new Scanner(System.in);
         }
-            public void inicio() {
+            public void inicio() throws SQLException {
             boolean salir = false;
             char opcion;
             do {
                 System.out.println("1. Gestión Articulos");
                 System.out.println("2. Gestión Clientes");
                 System.out.println("3. Gestión Pedidos");
+                System.out.println("4. Cargar Base de Datos");
                 System.out.println("0. Salir");
                 opcion = pedirOpcion();
                 switch (opcion) {
@@ -29,12 +33,16 @@ public class GestionOS {
                     case '3':
                         gestionPedidos();
                         break;
+                    case '4':
+                        this.controller.restartDatabase();
+                        System.out.print("Se ha cargado la base de datos correctamente.\n");
+                        break;
                     case '0':
                         salir = true;
                 }
             } while (!salir);
         }
-        char pedirOpcion(){
+        char pedirOpcion() {
             String resp;
             Scanner teclado = new Scanner(System.in);
             System.out.print("Elige una opción: ");
@@ -44,7 +52,7 @@ public class GestionOS {
             }
             return resp.charAt(0);
         }
-        void gestionArticulos() {
+        void gestionArticulos() throws SQLException {
             boolean salir = false;
             do {
                 System.out.println("[ Gestión Articulos ]");
@@ -91,7 +99,7 @@ public class GestionOS {
             System.out.println("Se ha producido un ERROR, no se añadira el articulo.\n");
         }
     }
-    void showArticulo() {
+    void showArticulo() throws SQLException {
 
         if (this.controller.mostrarArticulos().size()>0){
             for (Articulo miArticulo : this.controller.mostrarArticulos()) {
@@ -101,7 +109,7 @@ public class GestionOS {
             System.out.println("No existen articulos en el sistema.");
         }
     }
-    void gestionClientes() {
+    void gestionClientes() throws SQLException {
         boolean salir = false;
         do {
             System.out.println("[ Gestión Clientes ]");
@@ -183,7 +191,7 @@ public class GestionOS {
             System.out.println("Se ha producido un ERROR, no se añadira el cliente.\n");
         }
     }
-    void showClients() {
+    void showClients() throws SQLException {
 
         if (this.controller.mostrarClientes().size()>0){
             for (Cliente miCliente : this.controller.mostrarClientes()) {
@@ -194,7 +202,7 @@ public class GestionOS {
         }
 
     }
-    void showClientsStandard() {
+    void showClientsStandard() throws SQLException {
 
         if (this.controller.mostrarClientesEstandard().size()>0){
             for (Cliente miCliente : this.controller.mostrarClientesEstandard()) {
@@ -205,7 +213,7 @@ public class GestionOS {
         }
 
     }
-    void showClientsPremium() {
+    void showClientsPremium() throws SQLException {
 
         if (this.controller.mostrarClientesPremium().size()>0){
             for (Cliente miCliente : this.controller.mostrarClientesPremium()) {
@@ -216,7 +224,7 @@ public class GestionOS {
         }
 
     }
-    void gestionPedidos() {
+    void gestionPedidos() throws SQLException {
         boolean salir = false;
         do {
             System.out.println("[ Gestión Pedidos ]");
@@ -276,7 +284,7 @@ public class GestionOS {
             System.out.println("Se ha producido un ERROR, no se añadira el pedido.\n");
         }
     }
-    void showPedido() {
+    void showPedido() throws SQLException {
         if (this.controller.mostrarPedidos().size()>0){
             for (Pedido miPedido : this.controller.mostrarPedidos()) {
                 System.out.println(miPedido.toString() + "\n");
@@ -286,7 +294,7 @@ public class GestionOS {
         }
 
     }
-    void deletePedido() {
+    void deletePedido() throws SQLException {
         Scanner teclado = new Scanner(System.in);
         showPedido();
         System.out.println("Introduce Numero Pedido a Cancelar:");
@@ -297,7 +305,7 @@ public class GestionOS {
             System.out.println("Se ha producido un ERROR, el pedido no existe.\n");
         }
     }
-    void showPedidoEnviado() {
+    void showPedidoEnviado() throws SQLException {
         String resp;
         Scanner teclado = new Scanner(System.in);
         showClients();
@@ -314,7 +322,7 @@ public class GestionOS {
 
     }
 
-    void showPedidoPendiente() {
+    void showPedidoPendiente() throws SQLException {
         String resp;
         Scanner teclado = new Scanner(System.in);
         showClients();

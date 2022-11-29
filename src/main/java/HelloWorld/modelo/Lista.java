@@ -3,34 +3,39 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Lista<T> implements Iterable<T>{
-    protected ArrayList<T> Listaa;
+    public void addAll (Lista<T> lista) {
+        for(T element : lista){
+            this.Lista.add(element);
+        }
+    }
+    protected ArrayList<T> Lista;
     public Lista() {
-        Listaa = new ArrayList<>();
+        Lista = new ArrayList<>();
     }
     public int size() {
-        return this.Listaa.size();
+        return this.Lista.size();
     }
     public void add(T t) {
-        this.Listaa.add(t);
+        this.Lista.add(t);
     }
     public void remove(T t) {
-        this.Listaa.remove(t);
+        this.Lista.remove(t);
     }
     public T get(int position) {
-        return this.Listaa.get(position);
+        return this.Lista.get(position);
     }
     public void clear() {
-        this.Listaa.clear();
+        this.Lista.clear();
     }
     public boolean isEmpty() {
-        return this.Listaa.isEmpty();
+        return this.Lista.isEmpty();
     }
     public ArrayList<T> getArrayList() {
-        ArrayList<T> arrLista = new ArrayList<>(Listaa);
+        ArrayList<T> arrLista = new ArrayList<>(Lista);
         return arrLista;
     }
     @Override
     public Iterator<T> iterator() {
-        return this.Listaa.iterator();
+        return this.Lista.iterator();
     }
 }
