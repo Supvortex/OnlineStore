@@ -34,8 +34,7 @@ public class GestionOS {
                         gestionPedidos();
                         break;
                     case '4':
-                        Conexion con = new Conexion();
-                        con.restartDatabase();
+                        this.controller.restartDatabase();
                         System.out.print("Se ha cargado la base de datos correctamente.\n");
                         break;
                     case '0':
@@ -43,7 +42,7 @@ public class GestionOS {
                 }
             } while (!salir);
         }
-        char pedirOpcion(){
+        char pedirOpcion() {
             String resp;
             Scanner teclado = new Scanner(System.in);
             System.out.print("Elige una opción: ");

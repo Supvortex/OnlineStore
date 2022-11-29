@@ -3,7 +3,7 @@ import HelloWorld.modelo.*;
 import java.sql.SQLException;
 
 public class Dao implements IDao {
-    private Conexion conexion;
+    private IConexion conexion;
 
     public Dao() {
         conexion = new Conexion();
@@ -53,7 +53,6 @@ public class Dao implements IDao {
 
     public Lista<Pedido> mostrarPedidosPendientes(String cliente) throws SQLException {
         Lista<Pedido> pedidosPendientes = new Lista<Pedido>();
-        Lista<Pedido> pedidos = conexion.obtenerPedidoConCliente(cliente);
         for (Pedido myPedido : conexion.obtenerPedidoConCliente(cliente)) {
             if (esCancelable(myPedido)) {
                 pedidosPendientes.add(myPedido);

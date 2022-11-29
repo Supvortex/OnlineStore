@@ -174,7 +174,6 @@ public class Conexion implements IConexion {
             st.close();
             return true;
         }catch (Exception e){
-            e.printStackTrace();
             st.close();
             return false;
         }
@@ -257,7 +256,6 @@ public class Conexion implements IConexion {
             st.close();
             return true;
         }catch (Exception e){
-            e.printStackTrace();
             st.close();
             return false;
         }

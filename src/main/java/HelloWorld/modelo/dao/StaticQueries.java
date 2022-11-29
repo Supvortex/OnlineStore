@@ -22,7 +22,7 @@ public class StaticQueries {
     static final String INSERTARTICULODB3 = "INSERT INTO onlinestore.articulo VALUES ('015', 'sarten', 30.0, 4.0, 60);";
     static final String INSERTARTICULODB4 = "INSERT INTO onlinestore.articulo VALUES ('017', 'silla', 55.0, 15.0, 80);";
     static final String INSERTARTICULODB5 = "INSERT INTO onlinestore.articulo VALUES ('016', 'cama', 250.0, 25.0, 80);";
-    static final String INSERTARTICULODB6 = "INSERT INTO onlinestore.articulo VALUES ('013', 'espejo', 40.0, 15.0, 60);";
+    static final String INSERTARTICULODB6 = "INSERT INTO onlinestore.articulo VALUES ('013', 'espejo', 40.0, 15.0, 50);";
     static final String INSERTPEDIDODB = "INSERT INTO onlinestore.pedido VALUES ('01', 6, '2022-11-25 16:22', 'EvaFina@uoc.edu','010');";
     static final String INSERTPEDIDODB2 = "INSERT INTO onlinestore.pedido VALUES ('02', 6, '2022-11-23 11:52','EvaFina@uoc.edu','020');";
     static final String INSERTPEDIDODB3 = "INSERT INTO onlinestore.pedido VALUES ('03', 4, '2022-11-22 19:21','Armandoguerra@uoc.edu','017');";
