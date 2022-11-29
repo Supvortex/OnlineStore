@@ -8,6 +8,8 @@ import java.sql.SQLException;
 
 public interface IDao {
 
+    Boolean restartDatabase() throws SQLException;
+
     Boolean anadirPedido(Pedido pedido) throws SQLException;
 
     Boolean cancelarPedido(Pedido numPedido);

@@ -13,6 +13,10 @@ public class Controller implements IController  {
     public Controller(){
         dao = new Dao();
 }
+
+    public Boolean restartDatabase() throws SQLException{
+        return this.dao.restartDatabase();
+    }
     public Boolean anadirPedido(Pedido pedido) throws SQLException {
         return this.dao.anadirPedido(pedido);
     }

@@ -23,7 +23,32 @@ public class Conexion implements IConexion {
     public boolean restartDatabase() throws SQLException {
         Statement st = this.conexion.createStatement();
         try{
-            st.executeUpdate(StaticQueries.DATABASEINFO);
+            st.executeUpdate(StaticQueries.DROPDATABASE);
+            st.executeUpdate(StaticQueries.DROPSCHEMADB);
+            st.executeUpdate(StaticQueries.CREATEDB);
+            st.executeUpdate(StaticQueries.CREATETABLECLIENTEDB);
+            st.executeUpdate(StaticQueries.CREATETABLECLIENTESTDB);
+            st.executeUpdate(StaticQueries.CREATETABLECLIENTEPREM);
+            st.executeUpdate(StaticQueries.CREATETABLEARTICULO);
+            st.executeUpdate(StaticQueries.CREATETABLEPEDIDO);
+            st.executeUpdate(StaticQueries.INSERTCLIENTESDB);
+            st.executeUpdate(StaticQueries.INSERTCLIENTESDB2);
+            st.executeUpdate(StaticQueries.INSERTCLIENTESDB3);
+            st.executeUpdate(StaticQueries.INSERTCLIENTESDB4);
+            st.executeUpdate(StaticQueries.INSERTCLIENTEPREMDB);
+            st.executeUpdate(StaticQueries.INSERTCLIENTEPREMDB2);
+            st.executeUpdate(StaticQueries.INSERTCLIENTEESTDB);
+            st.executeUpdate(StaticQueries.INSERTCLIENTEESTDB2);
+            st.executeUpdate(StaticQueries.INSERTARTICULODB);
+            st.executeUpdate(StaticQueries.INSERTARTICULODB2);
+            st.executeUpdate(StaticQueries.INSERTARTICULODB3);
+            st.executeUpdate(StaticQueries.INSERTARTICULODB4);
+            st.executeUpdate(StaticQueries.INSERTARTICULODB5);
+            st.executeUpdate(StaticQueries.INSERTARTICULODB6);
+            st.executeUpdate(StaticQueries.INSERTPEDIDODB);
+            st.executeUpdate(StaticQueries.INSERTPEDIDODB2);
+            st.executeUpdate(StaticQueries.INSERTPEDIDODB3);
+            st.executeUpdate(StaticQueries.INSERTPEDIDODB7);
             st.close();
             return true;
         }catch (Exception e){
@@ -242,7 +267,6 @@ public class Conexion implements IConexion {
         String query = "select * from onlinestore.pedido";
         Statement st = this.conexion.createStatement();
         ResultSet rs = st.executeQuery(query);
-
         while(rs.next()){
             Pedido pedido = new Pedido();
             pedido.setNumPedido(rs.getString("numpedido"));
@@ -282,13 +306,14 @@ public class Conexion implements IConexion {
         }
     }
     public Lista<Pedido> obtenerPedidoConCliente(String clienteemail) throws SQLException {
-        Pedido pedido = new Pedido();
+
         Lista<Pedido> pedidos = new Lista<Pedido>();
         String query = "select * from onlinestore.pedido\n" +
                 "where pedido.clienteemail = '" + clienteemail + "';";
         PreparedStatement st = this.conexion.prepareStatement(query);
         ResultSet rs = st.executeQuery(query);
         while(rs.next()) {
+            Pedido pedido = new Pedido();
             pedido.setNumPedido(rs.getString("numpedido"));
             pedido.setCantidad(rs.getInt("cantidad"));
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

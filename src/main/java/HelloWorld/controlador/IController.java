@@ -9,6 +9,8 @@ import java.sql.SQLException;
 
 public interface IController {
 
+    Boolean restartDatabase() throws SQLException;
+
     Boolean anadirPedido(Pedido pedido) throws SQLException;
 
     Lista<Pedido> mostrarPedidos () throws SQLException;

@@ -2,6 +2,7 @@ package HelloWorld.vista;
 import HelloWorld.controlador.Controller;
 import HelloWorld.controlador.IController;
 import HelloWorld.modelo.*;
+import HelloWorld.modelo.dao.Conexion;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -19,6 +20,7 @@ public class GestionOS {
                 System.out.println("1. Gestión Articulos");
                 System.out.println("2. Gestión Clientes");
                 System.out.println("3. Gestión Pedidos");
+                System.out.println("4. Cargar Base de Datos");
                 System.out.println("0. Salir");
                 opcion = pedirOpcion();
                 switch (opcion) {
@@ -30,6 +32,11 @@ public class GestionOS {
                         break;
                     case '3':
                         gestionPedidos();
+                        break;
+                    case '4':
+                        Conexion con = new Conexion();
+                        con.restartDatabase();
+                        System.out.print("Se ha cargado la base de datos correctamente.\n");
                         break;
                     case '0':
                         salir = true;

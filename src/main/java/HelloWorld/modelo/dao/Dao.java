@@ -9,6 +9,10 @@ public class Dao implements IDao {
         conexion = new Conexion();
     }
 
+    public Boolean restartDatabase() throws SQLException {
+        return conexion.restartDatabase();
+    }
+
     public Boolean anadirPedido(Pedido pedido) throws SQLException {
         return conexion.anadirPedido(pedido);
     }
@@ -49,6 +53,7 @@ public class Dao implements IDao {
 
     public Lista<Pedido> mostrarPedidosPendientes(String cliente) throws SQLException {
         Lista<Pedido> pedidosPendientes = new Lista<Pedido>();
+        Lista<Pedido> pedidos = conexion.obtenerPedidoConCliente(cliente);
         for (Pedido myPedido : conexion.obtenerPedidoConCliente(cliente)) {
             if (esCancelable(myPedido)) {
                 pedidosPendientes.add(myPedido);
