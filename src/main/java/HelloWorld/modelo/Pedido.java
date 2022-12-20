@@ -1,11 +1,15 @@
 package HelloWorld.modelo;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import javax.swing.text.StyledEditorKit;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class Pedido {
     private String  numPedido;
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cliente  cliente;
+    @ManyToOne(fetch = FetchType.LAZY)
     private Articulo  articulo;
     private Integer cantidad;
     private LocalDateTime fechaHora;

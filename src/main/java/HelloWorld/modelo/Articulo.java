@@ -1,11 +1,26 @@
 package HelloWorld.modelo;
 
-public class Articulo {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+
+@Entity
+//@Table(name = "Articulo")
+public class Articulo implements Serializable {
+    //@Id
+    //@Column(name = "codigo")
     private String  codigo;
+    //@Column(name = "descripcion")
     private String  descripcion;
+    //@Column(name = "pvp")
     private float  pvp;
+    //@Column(name = "gastoenvio")
     private float  gastoEnvio;
+    //Column(name = "tiempoenvio")
     private int tiempoEnvio;
+
     public Articulo(String codigo, String descripcion, float pvp, float gastoEnvio, int tiempoEnvio) {
         this.codigo = codigo;
         this.descripcion = descripcion;

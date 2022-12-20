@@ -20,8 +20,8 @@ public class Controller implements IController  {
     public Boolean anadirPedido(Pedido pedido) throws SQLException {
         return this.dao.anadirPedido(pedido);
     }
-    public Boolean cancelarPedido(String numPedido) throws SQLException {
-        return this.dao.cancelarPedido(this.dao.getPedidoConNumPedido(numPedido));
+    public Boolean cancelarPedido(Pedido pedido) throws SQLException {
+        return this.dao.cancelarPedido(pedido);
     }
     public Lista<Pedido> mostrarPedidos () throws SQLException {
         return this.dao.mostrarPedidos();

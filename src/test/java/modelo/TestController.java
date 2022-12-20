@@ -59,12 +59,12 @@ public class TestController {
         Assertions.assertTrue(this.controller.getPedidoWithNumPedido("250").getNumPedido().equals("250"));
         this.controller.mostrarPedidos().clear();
     }
-    @Test
+    /*@Test
     void WhenCancelPedidoThenIsTrue() throws SQLException {
         this.controller.anadirPedido(this.pedido1);
         Assertions.assertTrue(this.controller.cancelarPedido(N_PEDIDO));
         this.controller.mostrarPedidos().clear();
-    }
+    }*/
     @Test
     void whenAddPedidoThenIsPending() throws SQLException {
         this.controller.anadirPedido(this.pedido3);

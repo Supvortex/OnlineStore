@@ -15,7 +15,7 @@ public interface IController {
 
     Lista<Pedido> mostrarPedidos () throws SQLException;
 
-    Boolean cancelarPedido(String numPedido) throws SQLException;
+    Boolean cancelarPedido(Pedido pedido) throws SQLException;
 
     Lista<Pedido> mostrarPedidosPendientes(String cliente) throws SQLException;
 

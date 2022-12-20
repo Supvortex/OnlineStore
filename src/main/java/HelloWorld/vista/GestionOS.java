@@ -7,6 +7,7 @@ import HelloWorld.modelo.dao.Conexion;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Scanner;
+
 public class GestionOS {
         private IController controller;
         public GestionOS() {
@@ -285,8 +286,11 @@ public class GestionOS {
         }
     }
     void showPedido() throws SQLException {
-        if (this.controller.mostrarPedidos().size()>0){
-            for (Pedido miPedido : this.controller.mostrarPedidos()) {
+        Lista<Pedido> pedidoLista = this.controller.mostrarPedidos();
+
+
+        if (pedidoLista.size()>0){
+            for (Pedido miPedido : pedidoLista) {
                 System.out.println(miPedido.toString() + "\n");
             }
         } else {
@@ -299,7 +303,7 @@ public class GestionOS {
         showPedido();
         System.out.println("Introduce Numero Pedido a Cancelar:");
         Pedido pedido = controller.getPedidoWithNumPedido(teclado.nextLine());
-        if (controller.cancelarPedido(pedido.getNumPedido())){
+        if (controller.cancelarPedido(pedido)){
             System.out.println("Se ha cancelado correctamente: " + pedido.getNumPedido() + "\n");
         } else {
             System.out.println("Se ha producido un ERROR, el pedido no existe.\n");
