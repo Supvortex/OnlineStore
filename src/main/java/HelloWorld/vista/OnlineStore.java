@@ -1,20 +1,30 @@
 package HelloWorld.vista;
 
-import java.io.File;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
-import HelloWorld.modelo.*;
-import HelloWorld.modelo.dao.ArticuloDao;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
-import javax.persistence.EntityManager;
-
-public class OnlineStore {
+public class OnlineStore extends Application {
     public static void main(String[] args) throws SQLException {
+
         GestionOS gestion = new GestionOS();
         gestion.inicio();
+        launch();
+    }
+
+    @Override
+    public void start(Stage stage) throws IOException, SQLException {
+        FXMLLoader fxmlLoader = new FXMLLoader(OnlineStore.class.getResource("/vista/menu-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        stage.setTitle("OnlineStore");
+        stage.setScene(scene);
+        stage.show();
+
+
     }
 }

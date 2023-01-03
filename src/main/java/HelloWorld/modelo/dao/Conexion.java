@@ -1,8 +1,6 @@
 package HelloWorld.modelo.dao;
+
 import HelloWorld.modelo.*;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 import java.sql.*;
 import java.time.LocalDateTime;

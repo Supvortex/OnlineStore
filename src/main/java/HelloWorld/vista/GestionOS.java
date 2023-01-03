@@ -1,8 +1,8 @@
 package HelloWorld.vista;
+
 import HelloWorld.controlador.Controller;
 import HelloWorld.controlador.IController;
 import HelloWorld.modelo.*;
-import HelloWorld.modelo.dao.Conexion;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -340,8 +340,6 @@ public class GestionOS {
         } else {
             System.out.println("No existen pedidos pendientes en el sistema.");
         }
-
     }
-
 }
 

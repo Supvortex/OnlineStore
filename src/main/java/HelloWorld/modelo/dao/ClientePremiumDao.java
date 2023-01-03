@@ -2,8 +2,6 @@ package HelloWorld.modelo.dao;
 import HelloWorld.modelo.Cliente;
 import HelloWorld.modelo.ClientePremium;
 import HelloWorld.modelo.Lista;
-import org.hibernate.Session;
-
 
 public class ClientePremiumDao extends AbstractDao<ClientePremium> {
 
@@ -18,6 +16,4 @@ public class ClientePremiumDao extends AbstractDao<ClientePremium> {
         return EjecuteQueryPremium(sql, ClientePremium.class);
 
     }
-
-
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="337.0" prefWidth="660.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloWorld.controllerFX.MenuController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <Button fx:id="btnGestionArticulos" cache="true" mnemonicParsing="false" onAction="#onClickAbrirGestionArticulos" style="-fx-background-color: grey;" text="Gestión Artículos" textFill="#edec0e" />
+   <Button fx:id="btnGestionClientes" mnemonicParsing="false" onAction="#onClickGestionClientes" style="-fx-background-color: grey;" text="Gestión Clientes" textFill="#edec0e" />
+    <Button fx:id="btnGestionPedidos" onAction="#onClickGestionPedidos" prefHeight="31.0" prefWidth="102.0" style="-fx-background-color: grey;" text="Gestión Pedidos" textFill="#edec0e" />
+   <Button fx:id="btnCargarBaseDatos" mnemonicParsing="false" onAction="#onClickCargarBaseDatos" style="-fx-background-color: grey;" text="Cargar Base de Datos" textFill="#edec0e" />
+   <Button layoutX="275.0" layoutY="218.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" style="-fx-background-color: grey;" text="Salir" textFill="#edec0e" />
+</VBox>

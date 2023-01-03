@@ -1,7 +1,5 @@
 package HelloWorld.modelo;
 
-import HelloWorld.modelo.dao.Dao;
-
 public abstract class Cliente {
     private String  email;
     private String  nombre;
