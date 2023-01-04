@@ -9,11 +9,11 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
-      <Button mnemonicParsing="false" text="Añadir Pedidos" />
-      <Button layoutX="290.0" layoutY="166.0" mnemonicParsing="false" text="Eliminar Pedido" />
-      <Button layoutX="290.0" layoutY="189.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Mostrar Pedidos" />
-      <Button layoutX="285.0" layoutY="211.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="164.0" text="Mostrar Pedidos Enviados" />
-      <Button layoutX="258.0" layoutY="234.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="189.0" text="Mostrar Pedidos Pendientes" />
+      <Button fx:id="btnAñadirPedido" mnemonicParsing="false" onAction="#onClickAñadirPedido" text="Añadir Pedido" />
+      <Button fx:id="btnEliminarPedido" layoutX="290.0" layoutY="166.0" mnemonicParsing="false" onAction="#onClickEliminarPedido" text="Eliminar Pedido" />
+      <Button fx:id="btnMostrarPedidos" layoutX="290.0" layoutY="189.0" mnemonicParsing="false" onAction="#onClickMostrarPedidos" prefHeight="25.0" prefWidth="111.0" text="Mostrar Pedidos" />
+      <Button fx:id="btnMostrarEnviados" layoutX="285.0" layoutY="211.0" mnemonicParsing="false" onAction="#onClickMostrarEnviados" prefHeight="25.0" prefWidth="164.0" text="Mostrar Pedidos Enviados" />
+      <Button fx:id="btnMostrarPendientes" layoutX="258.0" layoutY="234.0" mnemonicParsing="false" onAction="#onClickMostrarPendientes" prefHeight="25.0" prefWidth="189.0" text="Mostrar Pedidos Pendientes" />
       <Button layoutX="246.0" layoutY="256.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Volver" />
    </children>
 </VBox>

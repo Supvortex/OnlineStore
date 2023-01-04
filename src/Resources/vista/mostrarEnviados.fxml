@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="530.0" prefWidth="947.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloWorld.controllerFX.GestionPedidosController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <TableView fx:id="tblArticulos" prefHeight="503.0" prefWidth="907.0">
+        <columns>
+          <TableColumn fx:id="colCodigo" prefWidth="114.0" text="Número de pedido" />
+          <TableColumn fx:id="colDescripcion" prefWidth="76.0" text="Fecha Hora" />
+            <TableColumn fx:id="colPvp" prefWidth="62.0" text="NIF" />
+            <TableColumn fx:id="colGastos" prefWidth="83.0" text="Nombre" />
+            <TableColumn prefWidth="120.0" text="Código Artículo" />
+            <TableColumn prefWidth="149.0" text="Descripción Artículo" />
+            <TableColumn prefWidth="70.0" text="Cantidad" />
+            <TableColumn prefWidth="62.0" text="Precio" />
+            <TableColumn prefWidth="97.0" text="Gastos de envío" />
+            <TableColumn prefWidth="73.0" text="Total" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>

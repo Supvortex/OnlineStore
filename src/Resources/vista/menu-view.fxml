@@ -8,9 +8,9 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <Button fx:id="btnGestionArticulos" cache="true" mnemonicParsing="false" onAction="#onClickAbrirGestionArticulos" style="-fx-background-color: grey;" text="Gestión Artículos" textFill="#edec0e" />
-   <Button fx:id="btnGestionClientes" mnemonicParsing="false" onAction="#onClickGestionClientes" style="-fx-background-color: grey;" text="Gestión Clientes" textFill="#edec0e" />
-    <Button fx:id="btnGestionPedidos" onAction="#onClickGestionPedidos" prefHeight="31.0" prefWidth="102.0" style="-fx-background-color: grey;" text="Gestión Pedidos" textFill="#edec0e" />
-   <Button fx:id="btnCargarBaseDatos" mnemonicParsing="false" onAction="#onClickCargarBaseDatos" style="-fx-background-color: grey;" text="Cargar Base de Datos" textFill="#edec0e" />
-   <Button layoutX="275.0" layoutY="218.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" style="-fx-background-color: grey;" text="Salir" textFill="#edec0e" />
+   <Button fx:id="btnGestionArticulos" cache="true" mnemonicParsing="false" onAction="#onClickAbrirGestionArticulos" text="Gestión Artículos" />
+   <Button fx:id="btnGestionClientes" mnemonicParsing="false" onAction="#onClickGestionClientes" text="Gestión Clientes" />
+    <Button fx:id="btnGestionPedidos" onAction="#onClickGestionPedidos" prefHeight="31.0" prefWidth="102.0" text="Gestión Pedidos" />
+   <Button fx:id="btnCargarBaseDatos" mnemonicParsing="false" onAction="#onClickCargarBaseDatos" text="Cargar Base de Datos" />
+   <Button layoutX="275.0" layoutY="218.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" text="Salir" />
 </VBox>

@@ -9,8 +9,8 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
-      <Button mnemonicParsing="false" text="Añadir Articulos" />
-      <Button layoutX="290.0" layoutY="166.0" mnemonicParsing="false" text="Mostrar Articulos" />
+      <Button fx:id="btnAñadirArticulos" mnemonicParsing="false" onAction="#onClickAñadirArticulos" text="Añadir Articulos" />
+      <Button fx:id="btnMostrarArticulos" layoutX="290.0" layoutY="166.0" mnemonicParsing="false" onAction="#onClickMostrarArticulos" text="Mostrar Articulos" />
       <Button layoutX="290.0" layoutY="189.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Volver" />
    </children>
 </VBox>
