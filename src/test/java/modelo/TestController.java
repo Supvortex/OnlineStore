@@ -3,7 +3,6 @@ package modelo;
 import HelloWorld.controlador.Controller;
 import HelloWorld.controlador.IController;
 import HelloWorld.modelo.*;
-import HelloWorld.modelo.dao.Conexion;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;

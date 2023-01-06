@@ -42,11 +42,10 @@ public abstract class AbstractDao<T> {
     }
 
     public void remove(T entity) {
-        Session session = getSession();
 
-        session.getTransaction().begin();
-        session.remove(entity);
-        session.getTransaction().commit();
+        getSession().getTransaction().begin();
+        getSession().remove(entity);
+        getSession().getTransaction().commit();
         close();
     }
 

@@ -7,6 +7,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+
 public class GestionPedidosController {
 
     @FXML
@@ -14,7 +15,7 @@ public class GestionPedidosController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/añadirPedido.fxml"));
         Parent root = loader.load();
-        GestionPedidosController controlador = loader.getController();
+        AñadirPedidoController controlador = loader.getController();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -27,7 +28,7 @@ public class GestionPedidosController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/eliminarPedido.fxml"));
         Parent root = loader.load();
-        GestionPedidosController controlador = loader.getController();
+        EliminarPedidoController controlador = loader.getController();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -40,10 +41,9 @@ public class GestionPedidosController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/mostrarPedidos.fxml"));
         Parent root = loader.load();
-        GestionPedidosController controlador = loader.getController();
+        MostrarPedidosController controlador = loader.getController();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
         stage.showAndWait();
     }
@@ -53,10 +53,9 @@ public class GestionPedidosController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/mostrarEnviados.fxml"));
         Parent root = loader.load();
-        GestionPedidosController controlador = loader.getController();
+        MostrarPedidosEnviadosController controlador = loader.getController();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
         stage.showAndWait();
     }
@@ -66,7 +65,7 @@ public class GestionPedidosController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/mostrarPendientes.fxml"));
         Parent root = loader.load();
-        GestionPedidosController controlador = loader.getController();
+        MostrarPedidosPendientesController controlador = loader.getController();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);

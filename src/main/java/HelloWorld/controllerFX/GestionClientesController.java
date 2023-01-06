@@ -12,9 +12,9 @@ public class GestionClientesController {
     @FXML
     protected void onClickAñadirClientesEstandar() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/gestionClientesEstandar-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/añadirClienteEstandar.fxml"));
         Parent root = loader.load();
-        GestionClientesController controlador = loader.getController();
+        AñadirClienteEstandarController controlador = loader.getController();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -25,9 +25,9 @@ public class GestionClientesController {
     @FXML
     protected void onClickAñadirClientesPremium() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/gestionClientesPremium-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/añadirClientePremium.fxml"));
         Parent root = loader.load();
-        GestionClientesController controlador = loader.getController();
+        AñadirClientePremiumController controlador = loader.getController();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -40,7 +40,7 @@ public class GestionClientesController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/mostrarClientes.fxml"));
         Parent root = loader.load();
-        GestionClientesController controlador = loader.getController();
+        MostrarClientesController controlador = loader.getController();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -53,10 +53,9 @@ public class GestionClientesController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/mostrarEstandar.fxml"));
         Parent root = loader.load();
-        GestionClientesController controlador = loader.getController();
+        MostrarClientesEstandarController controlador = loader.getController();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
         stage.showAndWait();
     }
@@ -66,7 +65,7 @@ public class GestionClientesController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/mostrarPremium.fxml"));
         Parent root = loader.load();
-        GestionClientesController controlador = loader.getController();
+        MostrarClientesPremiumController controlador = loader.getController();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);

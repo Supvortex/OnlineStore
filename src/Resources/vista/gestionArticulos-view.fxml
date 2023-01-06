@@ -11,6 +11,6 @@
    <children>
       <Button fx:id="btnAñadirArticulos" mnemonicParsing="false" onAction="#onClickAñadirArticulos" text="Añadir Articulos" />
       <Button fx:id="btnMostrarArticulos" layoutX="290.0" layoutY="166.0" mnemonicParsing="false" onAction="#onClickMostrarArticulos" text="Mostrar Articulos" />
-      <Button layoutX="290.0" layoutY="189.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Volver" />
+      <Button fx:id="btnVolver" layoutX="290.0" layoutY="189.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Volver" />
    </children>
 </VBox>

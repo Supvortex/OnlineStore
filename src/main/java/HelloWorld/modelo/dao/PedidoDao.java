@@ -15,4 +15,6 @@ public class PedidoDao extends AbstractDao<Pedido> {
         return EjecuteQueryFindPedido(query);
 
     }
+
+
 }

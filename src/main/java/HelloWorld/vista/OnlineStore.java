@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -12,8 +11,10 @@ import java.sql.SQLException;
 public class OnlineStore extends Application {
     public static void main(String[] args) throws SQLException {
 
-        GestionOS gestion = new GestionOS();
-        gestion.inicio();
+         //GestionOS gestion = new GestionOS();
+         //gestion.inicio();
+
+        //CON LAUNCH SE ABRE EL MENU
         launch();
     }
 
