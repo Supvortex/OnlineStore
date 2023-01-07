@@ -31,7 +31,6 @@ public class AñadirPedidoController implements Initializable {
     private TextField txtCodigoArticulo;
     @FXML
     private TextField txtCantidad;
-
     @FXML
     private TableColumn<Cliente, String> colNombreCli;
     @FXML
@@ -50,7 +49,6 @@ public class AñadirPedidoController implements Initializable {
     private TableColumn<Articulo, Float> colGastosArt;
     @FXML
     private TableColumn<Articulo, Integer> colTiempoArt;
-
     @FXML
     private TableView<Articulo> tblArticulos;
     @FXML

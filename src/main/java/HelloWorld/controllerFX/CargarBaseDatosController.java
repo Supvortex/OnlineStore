@@ -15,10 +15,6 @@ public class CargarBaseDatosController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         this.controller = new Controller();
 
-        try {
-            this.controller.restartDatabase();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
     }
 }
