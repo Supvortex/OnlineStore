@@ -6,11 +6,14 @@ import HelloWorld.modelo.Articulo;
 import HelloWorld.modelo.Cliente;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -28,9 +31,10 @@ public class MostrarClientesController implements Initializable {
     private TableColumn<Cliente, String> colNif;
     @FXML
     private TableColumn<Cliente, String> colCorreo;
-
     @FXML
     private TableView<Cliente> tblClientes;
+    @FXML
+    private Button btnVolver;
 
     public MostrarClientesController() {
         this.controller = new Controller();
@@ -68,6 +72,10 @@ public class MostrarClientesController implements Initializable {
         return obs;
     }
 
-
+    @FXML
+    protected void onClickVolver(ActionEvent event){
+        Stage stage = (Stage)btnVolver.getScene().getWindow();
+        stage.close();
+    }
 
 }

@@ -3,14 +3,24 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="337.0" prefWidth="660.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloWorld.controllerFX.GestionArticulosController">
+<VBox alignment="CENTER" prefHeight="337.0" prefWidth="660.0" spacing="20.0" style="-fx-background-color: c2c2c2;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloWorld.controllerFX.GestionArticulosController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
-      <Button fx:id="btnAñadirArticulos" mnemonicParsing="false" onAction="#onClickAñadirArticulos" text="Añadir Articulos" />
-      <Button fx:id="btnMostrarArticulos" layoutX="290.0" layoutY="166.0" mnemonicParsing="false" onAction="#onClickMostrarArticulos" text="Mostrar Articulos" />
-      <Button fx:id="btnVolver" layoutX="290.0" layoutY="189.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Volver" />
+      <Button fx:id="btnAñadirArticulos" mnemonicParsing="false" onAction="#onClickAñadirArticulos" prefHeight="31.0" prefWidth="136.0" style="-fx-background-color: #646464;" text="Añadir Artículos" textFill="#c2c2c2">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="btnMostrarArticulos" mnemonicParsing="false" onAction="#onClickMostrarArticulos" prefHeight="31.0" prefWidth="136.0" style="-fx-background-color: #646464;" text="Mostrar Artículos" textFill="#c2c2c2">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#onClickVolver" prefHeight="31.0" prefWidth="136.0" style="-fx-background-color: #646464;" text="Volver" textFill="#c2c2c2">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
    </children>
 </VBox>

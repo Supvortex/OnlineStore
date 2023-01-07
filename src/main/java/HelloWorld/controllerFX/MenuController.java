@@ -30,6 +30,7 @@ public class MenuController {
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
+        stage.setTitle("Gestión de artículos");
         stage.show();
     }
 
@@ -42,6 +43,7 @@ public class MenuController {
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
+        stage.setTitle("Gestión de clientes");
         stage.show();
     }
 
@@ -54,6 +56,7 @@ public class MenuController {
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
+        stage.setTitle("Gestión de pedidos");
         stage.showAndWait();
     }
 
@@ -65,12 +68,9 @@ public class MenuController {
         CargarBaseDatosController controlador = loader.getController();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
+        stage.setTitle("Cargar base de datos");
         stage.initModality(Modality.APPLICATION_MODAL);
-
         stage.setScene(scene);
         stage.show();
     }
-
-
-
 }

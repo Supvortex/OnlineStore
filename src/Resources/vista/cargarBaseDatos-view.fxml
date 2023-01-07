@@ -3,12 +3,16 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="337.0" prefWidth="660.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloWorld.controllerFX.CargarBaseDatosController">
+<VBox alignment="CENTER" prefHeight="337.0" prefWidth="660.0" spacing="20.0" style="-fx-background-color: c2c2c2;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloWorld.controllerFX.CargarBaseDatosController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
-      <Label fx:id="labelBaseDatosCargada" text="Se ha cargado la base de datos correctamente" />
+      <Label fx:id="labelBaseDatosCargada" text="Se ha cargado la base de datos correctamente" textFill="#646464">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
    </children>
 </VBox>

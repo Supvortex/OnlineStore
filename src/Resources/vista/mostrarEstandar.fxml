@@ -3,8 +3,9 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox prefHeight="333.0" prefWidth="660.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloWorld.controllerFX.MostrarClientesEstandarController">
+<VBox alignment="TOP_CENTER" prefHeight="384.0" prefWidth="660.0" spacing="20.0" style="-fx-background-color: c2c2c2;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloWorld.controllerFX.MostrarClientesEstandarController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -17,5 +18,10 @@
             <TableColumn fx:id="colCorreo" prefWidth="211.0" text="Correo electrónico" />
         </columns>
       </TableView>
+      <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#onClickVolver" style="-fx-background-color: #646464;" text="Volver" textFill="#c2c2c2">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </VBox>

@@ -9,13 +9,12 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -62,6 +61,8 @@ public class MostrarPedidosEnviadosController implements Initializable {
     private TableView<Cliente> tblClientes;
     @FXML
     private TextField labelEmail;
+    @FXML
+    private Button btnVolver;
 
     public MostrarPedidosEnviadosController() {
         this.controller = new Controller();
@@ -81,8 +82,6 @@ public class MostrarPedidosEnviadosController implements Initializable {
             e.printStackTrace();
         }
         tblClientes.setItems(listcliente);
-
-
 
     }
 
@@ -137,5 +136,11 @@ public class MostrarPedidosEnviadosController implements Initializable {
         }
         tblPedidos.setItems(listPedidos);
         getPedidos();
+    }
+
+    @FXML
+    protected void onClickVolver(ActionEvent event){
+        Stage stage = (Stage)btnVolver.getScene().getWindow();
+        stage.close();
     }
 }

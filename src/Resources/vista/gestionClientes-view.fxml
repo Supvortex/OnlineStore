@@ -3,17 +3,36 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="337.0" prefWidth="660.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloWorld.controllerFX.GestionClientesController">
+<VBox alignment="CENTER" prefHeight="337.0" prefWidth="660.0" spacing="20.0" style="-fx-background-color: c2c2c2;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloWorld.controllerFX.GestionClientesController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
-      <Button fx:id="btnAñadirClientesEstandar" mnemonicParsing="false" onAction="#onClickAñadirClientesEstandar" text="Añadir Clientes Estandar" />
-      <Button fx:id="btnAñadirClientesPremium" layoutX="290.0" layoutY="166.0" mnemonicParsing="false" onAction="#onClickAñadirClientesPremium" text="Añadir Clientes Premium " />
-      <Button fx:id="btnMostrarClientes" layoutX="290.0" layoutY="189.0" mnemonicParsing="false" onAction="#onClickMostrarClientes" prefHeight="25.0" prefWidth="112.0" text="Mostrar Clientes" />
-      <Button fx:id="btnMostrarEstandar" layoutX="284.0" layoutY="211.0" mnemonicParsing="false" onAction="#onClickMostrarEstandar" prefHeight="25.0" prefWidth="165.0" text="Mostrar Clientes Estandar" />
-      <Button fx:id="btnMostrarPremium" layoutX="284.0" layoutY="234.0" mnemonicParsing="false" onAction="#onClickMostrarPremium" prefHeight="25.0" prefWidth="162.0" text="Mostrar Clientes Premium" />
-      <Button layoutX="259.0" layoutY="256.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="162.0" text="Volver" />
+      <Button fx:id="btnAñadirClientesEstandar" mnemonicParsing="false" onAction="#onClickAñadirClientesEstandar" prefHeight="31.0" prefWidth="194.0" style="-fx-background-color: #646464;" text="Añadir Clientes Estandar" textFill="#c2c2c2">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="btnAñadirClientesPremium" layoutX="290.0" layoutY="166.0" mnemonicParsing="false" onAction="#onClickAñadirClientesPremium" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: #646464;" text="Añadir Clientes Premium " textFill="#c2c2c2">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="btnMostrarClientes" layoutX="290.0" layoutY="189.0" mnemonicParsing="false" onAction="#onClickMostrarClientes" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: #646464;" text="Mostrar Clientes" textFill="#c2c2c2">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="btnMostrarEstandar" layoutX="284.0" layoutY="211.0" mnemonicParsing="false" onAction="#onClickMostrarEstandar" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: #646464;" text="Mostrar Clientes Estandar" textFill="#c2c2c2">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="btnMostrarPremium" layoutX="284.0" layoutY="234.0" mnemonicParsing="false" onAction="#onClickMostrarPremium" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: #646464;" text="Mostrar Clientes Premium" textFill="#c2c2c2">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="btnVolver" layoutX="259.0" layoutY="256.0" mnemonicParsing="false" onAction="#onClickVolver" prefHeight="31.0" prefWidth="196.0" style="-fx-background-color: #646464;" text="Volver" textFill="#c2c2c2">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
    </children>
 </VBox>

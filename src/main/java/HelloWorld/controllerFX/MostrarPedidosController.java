@@ -8,11 +8,15 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -44,6 +48,8 @@ public class MostrarPedidosController implements Initializable {
     private TableColumn<Pedido, Float> colTotal;
     @FXML
     private TableView<Pedido> tblPedidos;
+    @FXML
+    private Button btnVolver;
 
     public MostrarPedidosController() {
         this.controller = new Controller();
@@ -89,5 +95,11 @@ public class MostrarPedidosController implements Initializable {
         }
 
         return obs;
+    }
+
+    @FXML
+    protected void onClickVolver(ActionEvent event){
+        Stage stage = (Stage)btnVolver.getScene().getWindow();
+        stage.close();
     }
 }

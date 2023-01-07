@@ -40,6 +40,8 @@ public class MostrarArticulosController implements Initializable {
     private TableColumn<Articulo, Integer> colTiempo;
     @FXML
     private TableView<Articulo> tblArticulos;
+    @FXML
+    private Button btnVolver;
 
     public MostrarArticulosController() {
         this.controller = new Controller();
@@ -78,6 +80,9 @@ public class MostrarArticulosController implements Initializable {
         return obs;
     }
 
-
-
+    @FXML
+    protected void onClickVolver(ActionEvent event){
+        Stage stage = (Stage)btnVolver.getScene().getWindow();
+        stage.close();
+    }
 }

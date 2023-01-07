@@ -3,8 +3,9 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox prefHeight="545.0" prefWidth="880.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloWorld.controllerFX.MostrarPedidosPendientesController">
+<VBox prefHeight="545.0" prefWidth="880.0" spacing="20.0" style="-fx-background-color: c2c2c2;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloWorld.controllerFX.MostrarPedidosPendientesController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -18,9 +19,15 @@
             </columns>
         </TableView>
 
-        <Label text="Introduce el correo del cliente" />
+        <Label text="Introduce el correo del cliente" textFill="#646464">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
         <TextField fx:id="labelEmail" prefHeight="21.0" prefWidth="840.0" />
-        <Button fx:id="btnBuscarPedido" mnemonicParsing="false" onAction="#onClickBuscarPedido" text="Buscar pedido" />
+        <Button fx:id="btnBuscarPedido" mnemonicParsing="false" onAction="#onClickBuscarPedido" style="-fx-background-color: #646464;" text="Buscar pedido" textFill="#c2c2c2">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
 
         <TableView fx:id="tblPedidos" prefHeight="189.0" prefWidth="840.0">
             <columns>
@@ -36,5 +43,10 @@
                 <TableColumn fx:id="colTotal" prefWidth="73.0" text="Total" />
             </columns>
         </TableView>
+      <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#onClickVolver" style="-fx-background-color: #646464;" text="Volver" textFill="#c2c2c2">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
     </children>
 </VBox>
