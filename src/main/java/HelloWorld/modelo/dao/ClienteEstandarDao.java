@@ -1,11 +1,8 @@
 package HelloWorld.modelo.dao;
+
 import HelloWorld.modelo.Cliente;
 import HelloWorld.modelo.ClienteEstandar;
 import HelloWorld.modelo.Lista;
-import jakarta.persistence.criteria.CriteriaQuery;
-import org.hibernate.Session;
-
-import java.util.List;
 
 
 public class ClienteEstandarDao extends AbstractDao<ClienteEstandar> {

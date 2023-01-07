@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="648.0" prefWidth="854.0" spacing="20.0" style="-fx-background-color: c2c2c2;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloWorld.controllerFX.AñadirPedidoController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <Label text="Número de pedido" textFill="#646464">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <TextField fx:id="txtNumeroPedido" />
+      <TableView fx:id="tblClientes" prefHeight="281.0" prefWidth="524.0">
+         <columns>
+            <TableColumn fx:id="colNombreCli" prefWidth="162.0" text="Nombre" />
+            <TableColumn fx:id="colDomicilioCli" prefWidth="212.0" text="Domicilio" />
+            <TableColumn fx:id="colNifCli" prefWidth="128.0" text="NIF" />
+            <TableColumn fx:id="colCorreoCli" prefWidth="310.0" text="Correo electrónico" />
+         </columns>
+      </TableView>
+      <Label layoutX="30.0" layoutY="30.0" text="Correo electrónico" textFill="#646464">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <TextField fx:id="txtCorreo" layoutX="30.0" layoutY="67.0" />
+       <TableView fx:id="tblArticulos" prefHeight="281.0" prefWidth="524.0">
+          <columns>
+              <TableColumn fx:id="colCodigoArt" prefWidth="148.0" text="Codigo" />
+              <TableColumn fx:id="colDescripcionArt" prefWidth="165.0" text="Descripción" />
+              <TableColumn fx:id="colPvpArt" prefWidth="128.0" text="PVP" />
+              <TableColumn fx:id="colGastosArt" prefWidth="189.0" text="Gastos de Envío" />
+              <TableColumn fx:id="colTiempoArt" prefWidth="182.0" text="Tiempo de Envío" />
+          </columns>
+      </TableView>
+      <Label layoutX="30.0" layoutY="112.0" text="Código de artículo" textFill="#646464">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <TextField fx:id="txtCodigoArticulo" layoutX="30.0" layoutY="149.0" />
+      <Label layoutX="30.0" layoutY="194.0" text="Cantidad" textFill="#646464">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <TextField fx:id="txtCantidad" layoutX="30.0" layoutY="231.0" />
+      <VBox alignment="TOP_CENTER" prefHeight="42.0" prefWidth="620.0">
+         <children>
+            <Button fx:id="btnAceptar" mnemonicParsing="false" onAction="#onClickAceptar" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #646464;" text="Añadir" textFill="#c2c2c2">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+         </children>
+      </VBox>
+   </children>
+</VBox>

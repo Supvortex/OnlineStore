@@ -1,9 +1,8 @@
 package HelloWorld.modelo;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
@@ -76,4 +75,7 @@ public class Articulo implements Serializable {
                 ", tiempoEnvio=" + tiempoEnvio +
                 '}';
     }
+
+
+
 }

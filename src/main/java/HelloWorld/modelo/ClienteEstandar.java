@@ -1,5 +1,4 @@
 package HelloWorld.modelo;
-
 import HelloWorld.constants.CostConstants;
 
 public class ClienteEstandar extends Cliente{

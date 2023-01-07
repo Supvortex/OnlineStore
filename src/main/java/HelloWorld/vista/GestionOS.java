@@ -1,9 +1,8 @@
 package HelloWorld.vista;
+
 import HelloWorld.controlador.Controller;
 import HelloWorld.controlador.IController;
 import HelloWorld.modelo.*;
-import HelloWorld.modelo.dao.Conexion;
-
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -259,19 +258,19 @@ public class GestionOS {
     }
     void addPedido() {
         Scanner teclado = new Scanner(System.in);
-        Pedido pedido = new Pedido();
-        try {
-            System.out.println("[ Añadir Pedido ]");
-            System.out.println("Introduce Numero Pedido:");
-            pedido.setNumPedido(teclado.nextLine());
-            showClients();
-            System.out.println("Introduce Email de Cliente:");
-            pedido.setCliente(controller.getClienteWithID(teclado.nextLine()));
-            showArticulo();
-            System.out.println("Introduce Codigo del Articulo:");
-            pedido.setArticulo(controller.getArticuloWithCode(teclado.nextLine()));
-            System.out.println("Introduce Cantidad:");
-            pedido.setCantidad(Integer.parseInt(teclado.nextLine()));
+            Pedido pedido = new Pedido();
+            try {
+                System.out.println("[ Añadir Pedido ]");
+                System.out.println("Introduce Numero Pedido:");
+                pedido.setNumPedido(teclado.nextLine());
+                showClients();
+                System.out.println("Introduce Email de Cliente:");
+                pedido.setCliente(controller.getClienteWithID(teclado.nextLine()));
+                showArticulo();
+                System.out.println("Introduce Codigo del Articulo:");
+                pedido.setArticulo(controller.getArticuloWithCode(teclado.nextLine()));
+                System.out.println("Introduce Cantidad:");
+                pedido.setCantidad(Integer.parseInt(teclado.nextLine()));
             pedido.setFechaHora(LocalDateTime.now());
             System.out.println("Fecha y Hora del Pedido: " + LocalDateTime.now().toString());
 
@@ -287,8 +286,6 @@ public class GestionOS {
     }
     void showPedido() throws SQLException {
         Lista<Pedido> pedidoLista = this.controller.mostrarPedidos();
-
-
         if (pedidoLista.size()>0){
             for (Pedido miPedido : pedidoLista) {
                 System.out.println(miPedido.toString() + "\n");
@@ -340,8 +337,6 @@ public class GestionOS {
         } else {
             System.out.println("No existen pedidos pendientes en el sistema.");
         }
-
     }
-
 }
 

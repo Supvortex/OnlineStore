@@ -1,6 +1,9 @@
 package HelloWorld.modelo.dao;
-import HelloWorld.modelo.*;
-import org.hibernate.SessionFactory;
+
+import HelloWorld.modelo.Articulo;
+import HelloWorld.modelo.Cliente;
+import HelloWorld.modelo.Lista;
+import HelloWorld.modelo.Pedido;
 
 import java.sql.SQLException;
 

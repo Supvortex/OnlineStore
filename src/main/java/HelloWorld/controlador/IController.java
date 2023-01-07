@@ -38,5 +38,4 @@ public interface IController {
     Articulo getArticuloWithCode(String codeParam) throws SQLException;
 
     Pedido getPedidoWithNumPedido(String numPedidoParam) throws SQLException;
-
 }

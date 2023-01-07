@@ -1,9 +1,6 @@
 package HelloWorld.modelo.dao;
-import HelloWorld.modelo.Cliente;
-import HelloWorld.modelo.ClienteEstandar;
-import HelloWorld.modelo.Lista;
+
 import HelloWorld.modelo.Pedido;
-import org.hibernate.Session;
 
 
 public class PedidoDao extends AbstractDao<Pedido> {
@@ -18,4 +15,6 @@ public class PedidoDao extends AbstractDao<Pedido> {
         return EjecuteQueryFindPedido(query);
 
     }
+
+
 }

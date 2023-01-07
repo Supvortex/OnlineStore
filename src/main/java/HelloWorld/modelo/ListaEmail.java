@@ -1,7 +1,5 @@
 package HelloWorld.modelo;
 
-import java.util.ArrayList;
-
 public class ListaEmail {
     String email;
 

@@ -2,11 +2,9 @@ package HelloWorld.modelo.dao;
 
 import HelloWorld.modelo.*;
 import jakarta.persistence.criteria.CriteriaQuery;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
 
 import java.util.List;
 
@@ -44,11 +42,10 @@ public abstract class AbstractDao<T> {
     }
 
     public void remove(T entity) {
-        Session session = getSession();
 
-        session.getTransaction().begin();
-        session.remove(entity);
-        session.getTransaction().commit();
+        getSession().getTransaction().begin();
+        getSession().remove(entity);
+        getSession().getTransaction().commit();
         close();
     }
 
@@ -107,11 +104,8 @@ public abstract class AbstractDao<T> {
         return pedido.get(0);
     }
 
-
     public void close() {
         this.sessionFactory.getCurrentSession().close();
     }
-
-
 
 }
