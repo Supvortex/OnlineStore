@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="545.0" prefWidth="880.0" spacing="20.0" style="-fx-background-color: c2c2c2;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelloWorld.controllerFX.MostrarPedidosPendientesController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <children>
+        <TableView fx:id="tblClientes" prefHeight="90.0" prefWidth="772.0">
+            <columns>
+                <TableColumn fx:id="colNombre" prefWidth="117.0" text="Nombre" />
+                <TableColumn fx:id="colDomicilio" prefWidth="145.0" text="Domicilio" />
+                <TableColumn fx:id="colNif" minWidth="7.0" prefWidth="138.0" text="NIF" />
+                <TableColumn fx:id="colCorreo" prefWidth="219.0" text="Correo electrónico" />
+            </columns>
+        </TableView>
+
+        <Label text="Introduce el correo del cliente" textFill="#646464">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+        <TextField fx:id="labelEmail" prefHeight="21.0" prefWidth="840.0" />
+        <Button fx:id="btnBuscarPedido" mnemonicParsing="false" onAction="#onClickBuscarPedido" style="-fx-background-color: #646464;" text="Buscar pedido" textFill="#c2c2c2">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+
+        <TableView fx:id="tblPedidos" prefHeight="189.0" prefWidth="840.0">
+            <columns>
+                <TableColumn fx:id="colNumeroPedido" prefWidth="114.0" text="Número de pedido" />
+                <TableColumn fx:id="colFechaHora" prefWidth="76.0" text="Fecha Hora" />
+                <TableColumn fx:id="colNifPedido" prefWidth="62.0" text="NIF" />
+                <TableColumn fx:id="colNombrePedido" prefWidth="83.0" text="Nombre" />
+                <TableColumn fx:id="colCodigoArticulo" prefWidth="120.0" text="Código Artículo" />
+                <TableColumn fx:id="colDescripcionArticulo" prefWidth="149.0" text="Descripción Artículo" />
+                <TableColumn fx:id="colCantidad" prefWidth="70.0" text="Cantidad" />
+                <TableColumn fx:id="colPrecio" prefWidth="62.0" text="Precio" />
+                <TableColumn fx:id="colGastosEnvio" prefWidth="97.0" text="Gastos de envío" />
+                <TableColumn fx:id="colTotal" prefWidth="73.0" text="Total" />
+            </columns>
+        </TableView>
+      <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#onClickVolver" style="-fx-background-color: #646464;" text="Volver" textFill="#c2c2c2">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+    </children>
+</VBox>

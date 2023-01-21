@@ -1,12 +1,28 @@
 package HelloWorld.modelo.dao;
-import HelloWorld.modelo.*;
+
+import HelloWorld.modelo.Articulo;
+import HelloWorld.modelo.Cliente;
+import HelloWorld.modelo.Lista;
+import HelloWorld.modelo.Pedido;
+
 import java.sql.SQLException;
 
 public class Dao implements IDao {
     private IConexion conexion;
 
+    private ArticuloDao articuloDao;
+    private PedidoDao pedidoDao;
+    private ClienteDao clienteDao;
+    private ClienteEstandarDao clienteEstandarDao;
+    private ClientePremiumDao clientePremiumDao;
+
     public Dao() {
         conexion = new Conexion();
+        this.articuloDao = new ArticuloDao();
+        this.pedidoDao = new PedidoDao();
+        this.clienteDao = new ClienteDao();
+        this.clienteEstandarDao = new ClienteEstandarDao();
+        this.clientePremiumDao = new ClientePremiumDao();
     }
 
     public Boolean restartDatabase() throws SQLException {
@@ -14,11 +30,16 @@ public class Dao implements IDao {
     }
 
     public Boolean anadirPedido(Pedido pedido) throws SQLException {
-        return conexion.anadirPedido(pedido);
+        try{
+            pedidoDao.create(pedido);
+            return true;
+        } catch(Exception ex) {
+            return false;
+        }
     }
 
     public Boolean pedidoExiste(Pedido pedidoParam) throws SQLException {
-        if (conexion.obtenerPedidosConId(pedidoParam.getNumPedido()) != null) {
+        if (pedidoDao.find(pedidoParam.getNumPedido()) != null) {
             return true;
         } else {
             return false;
@@ -27,18 +48,18 @@ public class Dao implements IDao {
 
     public Boolean cancelarPedido(Pedido pedido) {
         if (esCancelable(pedido) == true) {
-            conexion.cancelarPedido(pedido);
+            pedidoDao.remove(pedido);
             return true;
         }
         return false;
     }
 
     public Pedido getPedidoConNumPedido(String numPedido) throws SQLException {
-        return conexion.obtenerPedidosConId(numPedido);
+        return pedidoDao.findbyid(numPedido);
     }
 
     public Lista<Pedido> mostrarPedidos() throws SQLException {
-        return conexion.obtenerPedidos();
+        return pedidoDao.findAll();
     }
 
     public Lista<Pedido> mostrarPedidosEnviados(String cliente) throws SQLException {
@@ -62,10 +83,11 @@ public class Dao implements IDao {
     }
 
     public Boolean anadirCliente(Cliente cliente) throws SQLException {
-        if (cliente instanceof ClienteEstandar) {
-            return conexion.addClienteEstandar((ClienteEstandar) cliente);
-        } else {
-            return conexion.addClientePremium((ClientePremium) cliente);
+        try {
+            this.clienteDao.create(cliente);
+            return true;
+        } catch (Exception ex){
+            return false;
         }
     }
 
@@ -78,25 +100,37 @@ public class Dao implements IDao {
     }
 
     public Lista<Cliente> mostrarClientes() throws SQLException {
-        Lista<Cliente> clientes = new Lista<Cliente>();
-        clientes.addAll(conexion.obtenerClientesEstandar());
-        clientes.addAll(conexion.obtenerClientesPremium());
-        return clientes;
+            Lista<Cliente> clientes = new Lista<Cliente>();
+            clientes.addAll(this.clienteDao.findAll());
+            return clientes;
     }
 
     public Lista<Cliente> mostrarClientesPrem() throws SQLException {
-        return conexion.obtenerClientesPremium();
+
+        Lista<Cliente> clientesPrem = new Lista<Cliente>();
+        clientesPrem.addAll(this.clientePremiumDao.findAll2());
+        return clientesPrem;
     }
 
     public Lista<Cliente> mostrarClientesEstandar() throws SQLException {
-        return conexion.obtenerClientesEstandar();
+        Lista<Cliente> clientesEst = new Lista<Cliente>();
+        clientesEst.addAll(this.clienteEstandarDao.findAll2());
+        return clientesEst;
     }
 
     public Boolean anadirArticulo(Articulo articulo) throws SQLException {
-        return conexion.anadirArticulo(articulo);
+        try {
+            articuloDao.create(articulo);
+            return true;
+        } catch(Exception ex) {
+            return false;
+        }
     }
 
     public Lista<Articulo> mostrarArticulos() throws SQLException {
+
+        Lista<Articulo> articuloLista = new Lista<>();
+        articuloLista.addAll(this.articuloDao.findAll());
         return conexion.obtenerArticulo();
     }
 
@@ -125,6 +159,6 @@ public class Dao implements IDao {
     }
 
     public Pedido getPedidoWithNumPedido(String numPedidoParam) throws SQLException {
-        return conexion.obtenerPedidosConId(numPedidoParam);
+        return this.pedidoDao.findbyid(numPedidoParam);
     }
 }

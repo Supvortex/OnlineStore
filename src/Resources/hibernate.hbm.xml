@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="HelloWorld.modelo.Articulo" table="articulo">
+        <id name="codigo" column="codigo" type="string"></id>
+        <property name="descripcion" column="descripcion" type="string"></property>
+        <property name="pvp" column="pvp" type="float"></property>
+        <property name="gastoEnvio" column="gastoenvio" type="float"></property>
+        <property name="tiempoEnvio" column="tiempoenvio" type="int"></property>
+    </class>
+
+    <class name="HelloWorld.modelo.Cliente" table="cliente">
+        <id name="email" column="email" type="string"></id>
+        <property name="nombre" column="nombre" type="string"></property>
+        <property name="domicilio" column="domicilio" type="string"></property>
+        <property name="nif" column="nif" type="string"></property>
+
+        <joined-subclass name="HelloWorld.modelo.ClienteEstandar" table="clienteestandar">
+            <key column="clienteEmail"></key>
+        </joined-subclass>
+        <joined-subclass name="HelloWorld.modelo.ClientePremium" table="clientepremium">
+            <key column="clienteEmail"></key>
+        </joined-subclass>
+    </class>
+
+    <class name="HelloWorld.modelo.Pedido" table="pedido">
+        <id name="numPedido" column="numPedido" type="string"></id>
+        <property name="cantidad" column="cantidad" type="int"></property>
+        <property name="fechaHora" column="fechaHora" type="LocalDateTime"></property>
+        <many-to-one name="cliente" class="HelloWorld.modelo.Cliente" column="clienteEmail" not-null="true" lazy="false" fetch="select"/>
+        <many-to-one name="articulo" class="HelloWorld.modelo.Articulo" column="articuloCod" not-null="true" lazy="false" fetch="select"/>
+    </class>
+
+</hibernate-mapping>

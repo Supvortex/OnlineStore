@@ -1,9 +1,10 @@
 package HelloWorld.controlador;
+
 import HelloWorld.modelo.Articulo;
 import HelloWorld.modelo.Cliente;
 import HelloWorld.modelo.Lista;
-import HelloWorld.modelo.dao.Dao;
 import HelloWorld.modelo.Pedido;
+import HelloWorld.modelo.dao.Dao;
 import HelloWorld.modelo.dao.IDao;
 
 import java.sql.SQLException;
@@ -20,8 +21,8 @@ public class Controller implements IController  {
     public Boolean anadirPedido(Pedido pedido) throws SQLException {
         return this.dao.anadirPedido(pedido);
     }
-    public Boolean cancelarPedido(String numPedido) throws SQLException {
-        return this.dao.cancelarPedido(this.dao.getPedidoConNumPedido(numPedido));
+    public Boolean cancelarPedido(Pedido pedido) throws SQLException {
+        return this.dao.cancelarPedido(pedido);
     }
     public Lista<Pedido> mostrarPedidos () throws SQLException {
         return this.dao.mostrarPedidos();
@@ -59,7 +60,4 @@ public class Controller implements IController  {
     public Pedido getPedidoWithNumPedido(String numPedidoParam) throws SQLException {
         return this.dao.getPedidoWithNumPedido(numPedidoParam);
     }
-
-
-
 }

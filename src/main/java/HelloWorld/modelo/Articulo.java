@@ -1,5 +1,6 @@
 package HelloWorld.modelo;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,7 +20,7 @@ public class Articulo implements Serializable {
     private float pvp;
     @Column(name = "gastoenvio")
     private float gastoEnvio;
-    @Column(name = "tiempoenvio")
+    @Column(name = "tiempoenvio")    
     private int tiempoEnvio;
 
     public Articulo(String codigo, String descripcion, float pvp, float gastoEnvio, int tiempoEnvio) {
@@ -88,4 +89,7 @@ public class Articulo implements Serializable {
                 ", tiempoEnvio=" + tiempoEnvio +
                 '}';
     }
+
+
+
 }

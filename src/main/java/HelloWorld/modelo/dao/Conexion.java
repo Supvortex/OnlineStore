@@ -1,5 +1,7 @@
 package HelloWorld.modelo.dao;
+
 import HelloWorld.modelo.*;
+
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -20,6 +22,7 @@ public class Conexion implements IConexion {
             e.printStackTrace();
         }
     }
+
     public boolean restartDatabase() throws SQLException {
         Statement st = this.conexion.createStatement();
         try{
@@ -165,6 +168,8 @@ public class Conexion implements IConexion {
             return null;
         }
     }
+
+
     public boolean anadirArticulo(Articulo articulo) throws SQLException {
         String query = "INSERT INTO onlinestore.articulo (codigo,descripcion,pvp,gastoenvio,tiempoenvio) VALUES ('" + articulo.getCodigo() + "'," +
                 " '" + articulo.getDescripcion() + "', '" + articulo.getPvp() + "', '" + articulo.getGastoEnvio() + "', '" + articulo.getTiempoEnvio() + "');";
@@ -178,6 +183,29 @@ public class Conexion implements IConexion {
             return false;
         }
     }
+
+    /*public boolean anadirArticulo(Articulo articulo){
+
+        SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Articulo.class).buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+
+        try {
+            Articulo articulos = new Articulo();
+            session.beginTransaction();
+
+            session.getTransaction().commit();
+
+            sessionFactory.close();
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }*/
+
+
     public Lista<Articulo> obtenerArticulo() throws SQLException{
         Lista<Articulo> articulos = new Lista<Articulo>();
         String query = "select * from onlinestore.articulo";
